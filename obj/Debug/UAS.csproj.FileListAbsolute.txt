@@ -1,0 +1,11 @@
+D:\C#\UAS\bin\Debug\UAS.exe.config
+D:\C#\UAS\bin\Debug\UAS.exe
+D:\C#\UAS\bin\Debug\UAS.pdb
+D:\C#\UAS\obj\Debug\UAS.csprojAssemblyReference.cache
+D:\C#\UAS\obj\Debug\UAS.Properties.Resources.resources
+D:\C#\UAS\obj\Debug\UAS.EventPage.resources
+D:\C#\UAS\obj\Debug\UAS.csproj.GenerateResource.cache
+D:\C#\UAS\obj\Debug\UAS.exe
+D:\C#\UAS\obj\Debug\UAS.pdb
+D:\C#\UAS\obj\Debug\UAS.Page.EventPageShowPageDetails.resources
+D:\C#\UAS\obj\Debug\UAS.MainForm.resources
