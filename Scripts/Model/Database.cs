@@ -24,41 +24,56 @@ namespace UAS.Scripts {
             dbSources = source;
         }
 
-        public Database Select(String something) {
-            this.query += "SELECT " + something + " ";
-
-            return this;
-        }
-
-        public void ExecuteQuery(String query) {
+        public SqlDataReader ExecuteQuery(String query) {
 
 
             if (sqlConnection == null) sqlConnection = new SqlConnection(dbSources);
             if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
 
-            sqlCommand = new SqlCommand(query, sqlConnection);
-            dataReader = sqlCommand.ExecuteReader();
+            SqlDataReader reader = null;
 
+            try {
 
-            dataReader.Close();
-            sqlConnection.Close();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                dataReader = sqlCommand.ExecuteReader();
 
+                reader = dataReader;
+
+            } catch (Exception e) {
+
+                Console.WriteLine("Error : " + e.Message);
+
+            }
+
+            return reader;
         }
 
-        public void ExecuteQuery(String query, ArrayList arrayList) {
+        public SqlDataReader ExecuteQuery(String query, ArrayList arrayList) {
 
             if (sqlConnection == null) sqlConnection = new SqlConnection(dbSources);
             if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
 
-            sqlCommand = new SqlCommand(query, sqlConnection);
-            dataReader = sqlCommand.ExecuteReader();
+            SqlDataReader reader = null;
 
+            try {
 
-            Console.WriteLine(1);
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                dataReader = sqlCommand.ExecuteReader();
 
+                reader = dataReader;
+
+            } catch(Exception e) {
+
+                Console.WriteLine("Error : " + e.Message);
+
+            }
+
+            return reader;
+        }
+
+        public void CloseConnection() {
             dataReader.Close();
             sqlConnection.Close();
-
         }
 
     }

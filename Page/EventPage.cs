@@ -19,7 +19,6 @@ namespace UAS {
         }
 
         private void eventPageShowPageDetails1_Load(object sender, EventArgs e) {
-            eventPageShowPageDetails.GetDataGridView().Rows.Add("1", "2", "3");
         }
     }
 }

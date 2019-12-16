@@ -9,3 +9,5 @@ D:\C#\UAS\obj\Debug\UAS.exe
 D:\C#\UAS\obj\Debug\UAS.pdb
 D:\C#\UAS\obj\Debug\UAS.Page.EventPageShowPageDetails.resources
 D:\C#\UAS\obj\Debug\UAS.MainForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.AddEventForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.EventParticipant.resources

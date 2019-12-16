@@ -27,14 +27,39 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
-        public QueryBuilder Where(String key, String value) {
-            this.query += "WHERE " + key + " = '" + value + "'";
+        public QueryBuilder Insert(String table, String value) {
+            this.query += "INSERT INTO " + table + " (" + value + ") VALUES";
+
+            return this;
+        }
+
+        public QueryBuilder Values(String[][] values) {
+
+            for (int i = 0; i < values.Length; i++) {
+                for (int j = 0; j < values[i].Length; j++) {
+                    if (j == 0) this.query += "(";
+
+                    this.query += "'" + values[i][j] + "'";
+
+                    if (j < values[i].Length - 1) this.query += ",";
+
+                    if (j == values[i].Length - 1) this.query += ")";
+
+                }
+                if (i < values.Length - 1) this.query += ",";
+            }
+
+            return this;
+        }
+
+        public QueryBuilder Where(String key, String operatorr, String value) {
+            this.query += "WHERE " + key + " " + operatorr + " '" + value + "'";
             return this;
         }
 
         public QueryBuilder Where(String[][] data) {
 
-            // {"key", "operator", "value", ""}
+            // {"key", "operator", "value", "AND"}
             this.query += "WHERE ";
             for (int i = 0; i < data.Length; i++) {
                 string temp = "";
@@ -48,12 +73,28 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
+        public QueryBuilder OrderBy(String order) {
+            this.query += "ORDER BY " + order + " ";
+
+            return this;
+        }
+
+        public QueryBuilder Limit(int offset, int limit) {
+
+            this.query += "OFFSET " + offset + " ROWS FETCH NEXT " + limit + " ROWS ONLY";
+
+            return this;
+        }
+
         public ArrayList GetArrayList() {
             return arrayList;
         }
 
         public String Get() {
-            return this.query;
+            String temp = this.query;
+            this.query = "";
+            
+            return temp;
         }
 
     }
