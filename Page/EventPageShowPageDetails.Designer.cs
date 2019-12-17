@@ -24,11 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonTambahEvent = new System.Windows.Forms.Button();
-            this.comboBoxPage = new System.Windows.Forms.ComboBox();
-            this.buttonLihatPeserta = new System.Windows.Forms.Button();
-            this.buttonLihatHasil = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +33,11 @@
             this.EventGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonTambahEvent = new System.Windows.Forms.Button();
+            this.comboBoxPage = new System.Windows.Forms.ComboBox();
+            this.buttonLihatPeserta = new System.Windows.Forms.Button();
+            this.buttonLihatHasil = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,75 +71,6 @@
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.dataGridView.LostFocus += new System.EventHandler(this.DataGridViewOnLostFocus);
-            // 
-            // buttonTambahEvent
-            // 
-            this.buttonTambahEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.buttonTambahEvent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonTambahEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTambahEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambahEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonTambahEvent.Location = new System.Drawing.Point(13, 400);
-            this.buttonTambahEvent.Name = "buttonTambahEvent";
-            this.buttonTambahEvent.Size = new System.Drawing.Size(130, 53);
-            this.buttonTambahEvent.TabIndex = 1;
-            this.buttonTambahEvent.Text = "Tambah";
-            this.buttonTambahEvent.UseVisualStyleBackColor = false;
-            this.buttonTambahEvent.Click += new System.EventHandler(this.buttonTambahEvent_Click);
-            // 
-            // comboBoxPage
-            // 
-            this.comboBoxPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxPage.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPage.FormattingEnabled = true;
-            this.comboBoxPage.Location = new System.Drawing.Point(13, 477);
-            this.comboBoxPage.Name = "comboBoxPage";
-            this.comboBoxPage.Size = new System.Drawing.Size(121, 31);
-            this.comboBoxPage.TabIndex = 2;
-            // 
-            // buttonLihatPeserta
-            // 
-            this.buttonLihatPeserta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.buttonLihatPeserta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLihatPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLihatPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLihatPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatPeserta.Location = new System.Drawing.Point(168, 400);
-            this.buttonLihatPeserta.Name = "buttonLihatPeserta";
-            this.buttonLihatPeserta.Size = new System.Drawing.Size(150, 53);
-            this.buttonLihatPeserta.TabIndex = 3;
-            this.buttonLihatPeserta.Text = "Lihat Peserta";
-            this.buttonLihatPeserta.UseVisualStyleBackColor = false;
-            this.buttonLihatPeserta.Click += new System.EventHandler(this.buttonLihatPeserta_Click);
-            // 
-            // buttonLihatHasil
-            // 
-            this.buttonLihatHasil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.buttonLihatHasil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLihatHasil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLihatHasil.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLihatHasil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatHasil.Location = new System.Drawing.Point(349, 400);
-            this.buttonLihatHasil.Name = "buttonLihatHasil";
-            this.buttonLihatHasil.Size = new System.Drawing.Size(130, 53);
-            this.buttonLihatHasil.TabIndex = 4;
-            this.buttonLihatHasil.Text = "Lihat Hasil";
-            this.buttonLihatHasil.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(512, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 53);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // ColumnNumber
             // 
@@ -203,6 +134,76 @@
             this.EventStatus.MinimumWidth = 6;
             this.EventStatus.Name = "EventStatus";
             this.EventStatus.Width = 125;
+            // 
+            // buttonTambahEvent
+            // 
+            this.buttonTambahEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonTambahEvent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTambahEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTambahEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTambahEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonTambahEvent.Location = new System.Drawing.Point(13, 400);
+            this.buttonTambahEvent.Name = "buttonTambahEvent";
+            this.buttonTambahEvent.Size = new System.Drawing.Size(130, 53);
+            this.buttonTambahEvent.TabIndex = 1;
+            this.buttonTambahEvent.Text = "Tambah";
+            this.buttonTambahEvent.UseVisualStyleBackColor = false;
+            this.buttonTambahEvent.Click += new System.EventHandler(this.buttonTambahEvent_Click);
+            // 
+            // comboBoxPage
+            // 
+            this.comboBoxPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxPage.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPage.FormattingEnabled = true;
+            this.comboBoxPage.Location = new System.Drawing.Point(13, 477);
+            this.comboBoxPage.Name = "comboBoxPage";
+            this.comboBoxPage.Size = new System.Drawing.Size(121, 31);
+            this.comboBoxPage.TabIndex = 2;
+            this.comboBoxPage.SelectedIndexChanged += new System.EventHandler(this.comboBoxPage_SelectedIndexChanged);
+            // 
+            // buttonLihatPeserta
+            // 
+            this.buttonLihatPeserta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonLihatPeserta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLihatPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLihatPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLihatPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLihatPeserta.Location = new System.Drawing.Point(168, 400);
+            this.buttonLihatPeserta.Name = "buttonLihatPeserta";
+            this.buttonLihatPeserta.Size = new System.Drawing.Size(150, 53);
+            this.buttonLihatPeserta.TabIndex = 3;
+            this.buttonLihatPeserta.Text = "Lihat Peserta";
+            this.buttonLihatPeserta.UseVisualStyleBackColor = false;
+            this.buttonLihatPeserta.Click += new System.EventHandler(this.buttonLihatPeserta_Click);
+            // 
+            // buttonLihatHasil
+            // 
+            this.buttonLihatHasil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonLihatHasil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLihatHasil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLihatHasil.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLihatHasil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLihatHasil.Location = new System.Drawing.Point(349, 400);
+            this.buttonLihatHasil.Name = "buttonLihatHasil";
+            this.buttonLihatHasil.Size = new System.Drawing.Size(130, 53);
+            this.buttonLihatHasil.TabIndex = 4;
+            this.buttonLihatHasil.Text = "Lihat Hasil";
+            this.buttonLihatHasil.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(512, 400);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 53);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // EventPageShowPageDetails
             // 

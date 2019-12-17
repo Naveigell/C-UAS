@@ -10,6 +10,7 @@ namespace UAS.Scripts.Model {
 
         private String query = "";
         private ArrayList arrayList;
+        public static int LIKE_LEFT = 60, LIKE_RIGHT = 90, LIKE_BOTH = 14;
 
         public QueryBuilder() {
             arrayList = new ArrayList();
@@ -54,6 +55,30 @@ namespace UAS.Scripts.Model {
 
         public QueryBuilder Where(String key, String operatorr, String value) {
             this.query += "WHERE " + key + " " + operatorr + " '" + value + "'";
+            return this;
+        }
+
+        public QueryBuilder WhereLike(String column, String value, int like) {
+
+           this.query += " WHERE " + column + " LIKE ";
+
+            if (like == LIKE_BOTH) {
+                this.query += "'%" + value + "%' ";
+                return this;
+            }
+
+            this.query += "'";
+            if (like == LIKE_LEFT) this.query += "% ";
+            this.query += value + " ";
+            if (like == LIKE_RIGHT) this.query += "% ";
+            this.query += "'";
+
+            return this;
+        }
+
+        public QueryBuilder Raw(String query) {
+            this.query = query;
+
             return this;
         }
 

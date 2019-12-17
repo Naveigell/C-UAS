@@ -24,8 +24,28 @@ namespace UAS.Scripts {
             dbSources = source;
         }
 
-        public SqlDataReader ExecuteQuery(String query) {
+        public int ExecuteNonQuery(String query) {
 
+            if (sqlConnection == null) sqlConnection = new SqlConnection(dbSources);
+            if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+
+            int affectedRows = -1;
+
+            try {
+
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                affectedRows = sqlCommand.ExecuteNonQuery();
+
+            } catch (Exception e) {
+
+                Console.WriteLine("Error : " + e.Message);
+
+            }
+
+            return affectedRows;
+        }
+
+        public SqlDataReader ExecuteQuery(String query) {
 
             if (sqlConnection == null) sqlConnection = new SqlConnection(dbSources);
             if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();

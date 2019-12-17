@@ -18,25 +18,17 @@ namespace UAS.Page {
 
         private Database database;
         private QueryBuilder queryBuilder;
-
         private SqlDataReader dataReader;
+
         private ArrayList IDEventStore;
+
+        private int page = 0;
+        private int totalPage = 0;
+        private int dataPerPage = 10;
 
         public EventPageShowPageDetails() {
             InitializeComponent();
             InitializeVariables();
-
-            QueryBuilder builder = queryBuilder.Insert("table",
-                                                       "id_event, nama_event")
-
-                                               .Values(new String[][] {
-                                                    new String[] { "CTR001", "event name" },
-                                                    new String[] { "CTR001", "event name" },
-                                                    new String[] { "CTR001", "event name" }
-                                               });
-
-            String get = builder.Get();
-            Console.WriteLine(get);
         }
 
         public DataGridView GetDataGridView() {
@@ -47,46 +39,92 @@ namespace UAS.Page {
             
         }
 
-        private void EventPageShowPageDetails_Load(object sender, EventArgs e) {
+        private void LoadEventData(int offset, int limit) {
+            // clear rows dari data gridview
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
+                
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("event_olahraga")
                                                .OrderBy("id_event")
                                                // sebelum limit harus menggunakan order by
-                                               .Limit(0, 10);
+                                               .Limit(offset, limit);
 
-            dataReader = database.ExecuteQuery(builder.Get(), builder.GetArrayList());
-            int number = 0;
+            try {
 
-            while (dataReader.Read()) {
+                dataReader = database.ExecuteQuery(builder.Get());
+                int number = offset;
 
-                string status = "Sedang Berlangsung";
+                while (dataReader.Read()) {
 
-                // jadikan tanggal mulai dan selesai ke datetime
-                DateTime dateTimeSelesai = Convert.ToDateTime(dataReader["tanggal_event_selesai"].ToString());
-                DateTime dateTimeMulai = Convert.ToDateTime(dataReader["tanggal_pelaksanaan_event"].ToString());
+                    string status = "Sedang Berlangsung";
 
-                // jika waktu sekarang lebih dari waktu tanggal berakhir
-                if (DateTime.Now.Date > dateTimeSelesai.Date) {
-                    status = "Sudah Selesai";
-                } else if (DateTime.Now.Date < dateTimeMulai.Date) { // jika waktu sekarang kuran dari waktu tanggal mulai
-                    status = "Belum Dimulai";
+                    // jadikan tanggal mulai dan selesai ke datetime
+                    DateTime dateTimeSelesai = Convert.ToDateTime(dataReader["tanggal_event_selesai"].ToString());
+                    DateTime dateTimeMulai = Convert.ToDateTime(dataReader["tanggal_pelaksanaan_event"].ToString());
+
+                    // jika waktu sekarang lebih dari waktu tanggal berakhir
+                    if (DateTime.Now.Date > dateTimeSelesai.Date) {
+                        status = "Sudah Selesai";
+                    } else if (DateTime.Now.Date < dateTimeMulai.Date) { // jika waktu sekarang kuran dari waktu tanggal mulai
+                        status = "Belum Dimulai";
+                    }
+
+                    dataGridView.Rows.Add(
+                        ++number,
+                        dataReader["id_event"].ToString(),
+                        dataReader["nama_event"].ToString(),
+                        dateTimeMulai.ToString("dd - MM - yyyy"),
+                        dateTimeSelesai.ToString("dd - MM - yyyy"),
+                        dataReader["tipe_event"].ToString().First().ToString().ToUpper() + dataReader["tipe_event"].ToString().Substring(1),
+                        dataReader["event_gender"].ToString(),
+                        dataReader["deskripsi"].ToString(),
+                        status
+                    );
+
                 }
 
-                dataGridView.Rows.Add(
-                    ++number,
-                    dataReader["id_event"].ToString(), 
-                    dataReader["nama_event"].ToString(),
-                    dateTimeMulai.ToString("dd - MM - yyyy"),
-                    dateTimeSelesai.ToString("dd - MM - yyyy"),
-                    dataReader["tipe_event"].ToString().First().ToString().ToUpper() + dataReader["tipe_event"].ToString().Substring(1),
-                    dataReader["event_gender"].ToString(),
-                    dataReader["deskripsi"].ToString(),
-                    status
-                );
-                 
+                dataReader.Close();
+
+                database.CloseConnection();
+
+            } catch(Exception e) {
+                Console.WriteLine(e.Message);
             }
 
+        }
+
+        private void LoadEventPage() {
+
+            QueryBuilder builder = queryBuilder.Raw("SELECT COUNT(*) AS counts FROM event_olahraga");
+
+            dataReader = database.ExecuteQuery(builder.Get());
+            int total = 0;
+
+            while (dataReader.Read()) {
+                total = int.Parse(dataReader["counts"].ToString());
+            }
+            dataReader.Close();
             database.CloseConnection();
+
+            // ambil total data event lalu jumlahnya di bagi
+            totalPage = total / dataPerPage;
+            // cek jika modulus data event lebih dari 0, maka ada page tambahan
+            totalPage = total % dataPerPage > 0 ? ++totalPage : totalPage;
+
+            // insert page tambahan ke dalam combo box page
+            comboBoxPage.Items.Clear();
+            for (int i = 1; i <= totalPage; i++) {
+                comboBoxPage.Items.Add("Page " + i);
+            }
+            // untuk default buat combobox select index ke 0
+            comboBoxPage.SelectedIndex = 0;
+        }
+
+        private void EventPageShowPageDetails_Load(object sender, EventArgs e) {
+            int to = (page + 1) * dataPerPage;
+            int from = to - dataPerPage;
+            LoadEventData(from, to);
         }
 
         protected void InitializeVariables() {
@@ -102,10 +140,13 @@ namespace UAS.Page {
             comboBoxPage.Items.AddRange(new String[] { "Page 1", "Page 2" });
             // jika combobox item lebih dari 0, maka set combo box index menjadi yang pertama
             if (comboBoxPage.Items.Count > 0) comboBoxPage.SelectedIndex = 0;
+            page = comboBoxPage.SelectedIndex;
 
             // menambah event baru ke dalam datagridview
             dataGridView.LostFocus += DataGridViewOnLostFocus;
             dataGridView.Columns[0].Width = 50;
+
+            LoadEventPage();
         }
 
         private void DataGridViewOnLostFocus(object sender, EventArgs e) {
@@ -144,6 +185,14 @@ namespace UAS.Page {
             form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
 
 
+        }
+
+        private void comboBoxPage_SelectedIndexChanged(object sender, EventArgs e) {
+            page = comboBoxPage.SelectedIndex;
+
+            int to = (page + 1) * dataPerPage;
+            int from = to - dataPerPage;
+            LoadEventData(from, to);
         }
     }
 }

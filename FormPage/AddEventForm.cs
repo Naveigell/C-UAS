@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using UAS.Scripts;
+using UAS.Scripts.Model;
 
 namespace UAS.FormPage {
     public partial class AddEventForm : Form {
@@ -12,6 +15,9 @@ namespace UAS.FormPage {
                      isGenderError = true,
                      isDescriptionError = true;
 
+        private QueryBuilder queryBuilder;
+        private Database database;
+
         public AddEventForm() {
             InitializeComponent();
             InitializeVariables();
@@ -22,6 +28,10 @@ namespace UAS.FormPage {
         }
 
         protected void InitializeVariables() {
+
+            database = new Database(Properties.Settings.Default.dbSources);
+            queryBuilder = new QueryBuilder();
+
             dateTimePickerStartDate.Format = DateTimePickerFormat.Custom;
             dateTimePickerStartDate.CustomFormat = "MM - dd - yyyy             HH:mm";
 
@@ -48,25 +58,58 @@ namespace UAS.FormPage {
             if (!isEventNameError && !isEventIDError && !isDescriptionError && 
                 !isEventTypeError && !isFinishDateError && !isStartDateError && !isGenderError) {
 
-                Console.WriteLine("Name : " + isEventNameError);
-                Console.WriteLine("EventID : " + isEventIDError);
-                Console.WriteLine("Description : " + isDescriptionError);
-                Console.WriteLine("Event Type : " + isEventTypeError);
-                Console.WriteLine("FinishDate : " + isFinishDateError);
-                Console.WriteLine("StartDate : " + isStartDateError);
-                Console.WriteLine("Gender Error : " + isGenderError);
-                Console.WriteLine();
+                // ambil event dengan id yang mirip
+                QueryBuilder builder = queryBuilder.Select("*")
+                                                   .From("event_olahraga")
+                                                   .WhereLike("id_event", textBoxEventID.Text.ToString(), QueryBuilder.LIKE_BOTH);
+                // ambil event dengan id yang mirip
+                SqlDataReader dataReader = database.ExecuteQuery(queryBuilder.Get());
 
-                Console.WriteLine("Name Length : " + textBoxEventName.Text.Length);
-                Console.WriteLine("Event ID Length : " + textBoxEventID.Text.Length);
-                Console.WriteLine("Description Length : " + textBoxDescription.Text.Length);
-                Console.WriteLine();
+                DateTime startDate = dateTimePickerStartDate.Value;
+                DateTime finishDate = dateTimePickerFinishDate.Value;
 
-                Console.WriteLine("Name : " + textBoxEventName.Text.ToString());
-                Console.WriteLine("Event ID : " + textBoxEventID.Text.ToString());
-                Console.WriteLine("Description : " + textBoxDescription.Text.ToString());
+                try {
+                    int count = 0;
+                    // cek berapa banyak id event yang mirip
+                    while (dataReader.Read()) {
+                        // cek banyaknya event
+                        ++count;
+                    }
+                    // increment kan 1
+                    ++count;
 
-                Console.WriteLine("============================");
+                    dataReader.Close();
+
+                    // tambahkan 0 di depan event id, misal
+                    // AAA001, AAA011, AAA111
+                    String eventID = textBoxEventID.Text.ToString().ToUpper();
+                    if (count < 10) eventID = eventID + "00" + count;
+                    else if (count < 100) eventID = eventID + "0" + count;
+                    else eventID = eventID + count;
+
+                    // membuat query untuk insert data
+                    builder = queryBuilder.Insert("event_olahraga",
+                                                   "id_event, nama_event, tanggal_pelaksanaan_event, tanggal_event_selesai, tipe_event, deskripsi, event_gender, status_event")
+
+                                           .Values(new String[][] {
+                                            new String[] { eventID, textBoxEventName.Text.ToString(), startDate.ToString("yyyy-MM-dd HH:mm"), finishDate.ToString("yyyy-MM-dd HH:mm"), comboBoxEventType.SelectedItem.ToString(), textBoxDescription.Text.ToString(), comboBoxEventGender.SelectedItem.ToString(), "1" },
+                                           });
+
+                    // execute query dari insert data
+                    int rowsAffected = database.ExecuteNonQuery(builder.Get());
+                    // jika query berhasil di execute tanpa error,
+                    // -1 = error
+                    if (rowsAffected > -1) {
+                        MessageBox.Show("Tambah event berhasil", "Success");
+                        // tutup form jika berhasil
+                        this.Close();
+                    } else {
+                        MessageBox.Show("Tambah event gagal", "Failed");
+                    }
+
+                } catch (Exception exception) {
+                    Console.WriteLine("Error : " + exception.Message);
+                }
 
             } else {
                 MessageBox.Show("Ups check your input again", "Error");
@@ -121,7 +164,7 @@ namespace UAS.FormPage {
                     // buat random antara nomor 1 - 10 lalu cek apakah
                     // hasilnya kurang dari sama dengan 5
                     if (random.Next(1, 10) <= 5) {
-                        // tambahkan huruf pada stringToGenerate oada index
+                        // tambahkan huruf pada stringToGenerate pada index
                         // ke i ke dalam temp string dan increment count
                         tempString += stringToGenerate[i];
                         count++;
@@ -148,6 +191,8 @@ namespace UAS.FormPage {
 
             DateTime startDate = dateTimePickerStartDate.Value;
             DateTime finishDate = dateTimePickerFinishDate.Value;
+
+            startDate.ToString("yyyy-MM-dd HH:mm:ss");
 
             if (startDate.Date > finishDate.Date) {
                 labelErrorMessage.Text = "Start date cant be greater than finish date";
