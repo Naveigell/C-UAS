@@ -52,6 +52,12 @@
     <Compile Include="FormPage\AddEventForm.Designer.cs">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\EditEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\EditEventForm.Designer.cs">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPage\EventParticipant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <Compile Include="Scripts\Model\QueryBuilder.cs" />
     <EmbeddedResource Include="FormPage\AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\EditEventForm.resx">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\EventParticipant.resx">
       <DependentUpon>EventParticipant.cs</DependentUpon>

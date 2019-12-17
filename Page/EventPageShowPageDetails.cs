@@ -31,10 +31,6 @@ namespace UAS.Page {
             InitializeVariables();
         }
 
-        public DataGridView GetDataGridView() {
-            return dataGridView;
-        }
-
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             
         }
@@ -193,6 +189,34 @@ namespace UAS.Page {
             int to = (page + 1) * dataPerPage;
             int from = to - dataPerPage;
             LoadEventData(from, to);
+        }
+
+        public void RefreshEvent() {
+            int to = (page + 1) * dataPerPage;
+            int from = to - dataPerPage;
+            LoadEventData(from, to);
+        }
+
+        private void buttonEditEvent_Click(object sender, EventArgs e) {
+            int rowCount = dataGridView.CurrentCell.RowIndex;
+            String eventID = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
+            String eventName = dataGridView.Rows[rowCount].Cells[2].Value.ToString();
+            String eventDescription = dataGridView.Rows[rowCount].Cells[7].Value.ToString();
+
+            EditEventForm editEventForm = new EditEventForm();
+
+            // mengambil parent form
+            Form form = (this.Parent.Parent as Form);
+            form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            editEventForm.SetEventID(eventID);
+            editEventForm.SetEventName(eventName);
+            editEventForm.SetEventDescription(eventDescription);
+            editEventForm.ShowDialog(this);
+
+            RefreshEvent();
+
+            form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
         }
     }
 }

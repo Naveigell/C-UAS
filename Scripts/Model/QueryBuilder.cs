@@ -54,7 +54,7 @@ namespace UAS.Scripts.Model {
         }
 
         public QueryBuilder Where(String key, String operatorr, String value) {
-            this.query += "WHERE " + key + " " + operatorr + " '" + value + "'";
+            this.query += " WHERE " + key + " " + operatorr + " '" + value + "'";
             return this;
         }
 
@@ -82,10 +82,26 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
+        public QueryBuilder Set(String[][] data) {
+
+            for (int i = 0; i < data.Length; i++) {
+                this.query += data[i][0] + " = '" + data[i][1] + "'";
+                if (i < data.Length - 1) this.query += ", ";
+            }
+
+            return this;
+        }
+
+        public QueryBuilder Update(String table) {
+            this.query += " UPDATE " + table + " SET ";
+
+            return this;
+        }
+
         public QueryBuilder Where(String[][] data) {
 
             // {"key", "operator", "value", "AND"}
-            this.query += "WHERE ";
+            this.query += " WHERE ";
             for (int i = 0; i < data.Length; i++) {
                 string temp = "";
                 if (data[i].Length > 3 && i < data.Length - 1) temp = data[i][3];

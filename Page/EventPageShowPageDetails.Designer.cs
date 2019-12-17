@@ -37,7 +37,7 @@
             this.comboBoxPage = new System.Windows.Forms.ComboBox();
             this.buttonLihatPeserta = new System.Windows.Forms.Button();
             this.buttonLihatHasil = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEditEvent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,25 +191,26 @@
             this.buttonLihatHasil.Text = "Lihat Hasil";
             this.buttonLihatHasil.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // buttonEditEvent
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(512, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 53);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonEditEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonEditEvent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEditEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEditEvent.Location = new System.Drawing.Point(512, 400);
+            this.buttonEditEvent.Name = "buttonEditEvent";
+            this.buttonEditEvent.Size = new System.Drawing.Size(130, 53);
+            this.buttonEditEvent.TabIndex = 5;
+            this.buttonEditEvent.Text = "Edit";
+            this.buttonEditEvent.UseVisualStyleBackColor = false;
+            this.buttonEditEvent.Click += new System.EventHandler(this.buttonEditEvent_Click);
             // 
             // EventPageShowPageDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEditEvent);
             this.Controls.Add(this.buttonLihatHasil);
             this.Controls.Add(this.buttonLihatPeserta);
             this.Controls.Add(this.comboBoxPage);
@@ -230,7 +231,7 @@
         private System.Windows.Forms.ComboBox comboBoxPage;
         private System.Windows.Forms.Button buttonLihatPeserta;
         private System.Windows.Forms.Button buttonLihatHasil;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEditEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
