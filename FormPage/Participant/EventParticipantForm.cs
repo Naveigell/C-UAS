@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using UAS.FormPage.Participant;
@@ -11,6 +12,9 @@ namespace UAS.FormPage {
         private String eventID;
         private Database database;
         private QueryBuilder queryBuilder;
+        private ArrayList arrayList;
+
+        private String[] tempIDArray;
 
         public EventParticipant() {
             InitializeComponent();
@@ -23,6 +27,7 @@ namespace UAS.FormPage {
 
             database = new Database(Properties.Settings.Default.dbSources);
             queryBuilder = new QueryBuilder();
+            arrayList = new ArrayList();
         }
 
         public void SetEventID(String id) {
@@ -42,6 +47,8 @@ namespace UAS.FormPage {
 
                 while (dataReader.Read()) {
 
+                    arrayList.Add(dataReader["id_peserta"].ToString());
+
                     dataGridView.Rows.Add(
                         ++number,
                         dataReader["nama_peserta"].ToString(),
@@ -49,6 +56,12 @@ namespace UAS.FormPage {
                         dataReader["tipe_peserta"].ToString(),
                         dataReader["gender"].ToString()
                     );
+                }
+
+                tempIDArray = new String[arrayList.Count];
+
+                for (int i = 0; i < arrayList.Count; i++) {
+                    tempIDArray[i] = arrayList[i].ToString();
                 }
 
                 dataReader.Close();
@@ -72,6 +85,27 @@ namespace UAS.FormPage {
             // passing id event ke form berikutnya
             addParticipant.SetEventID(eventID);
             addParticipant.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+        }
+
+        private void buttonEditParticipant_Click(object sender, EventArgs e) {
+
+            int rowCount = dataGridView.CurrentCell.RowIndex;
+            String participantName = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
+            String participantCellulerPhone = dataGridView.Rows[rowCount].Cells[2].Value.ToString();
+
+            EditParticipantForm editParticipant = new EditParticipantForm();
+
+            this.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            // passing value ke form berikutnya
+            editParticipant.SetEventID(eventID);
+            editParticipant.SetParticipantID(tempIDArray[rowCount]);
+            editParticipant.SetParticipantName(participantName);
+            editParticipant.SetParticipantCellulerPhone(participantCellulerPhone);
+            editParticipant.ShowDialog(this);
             LoadData();
 
             this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose

@@ -64,6 +64,12 @@
     <Compile Include="FormPage\Participant\AddEventParticipantForm.Designer.cs">
       <DependentUpon>AddEventParticipantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\Participant\EditParticipantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Participant\EditParticipantForm.Designer.cs">
+      <DependentUpon>EditParticipantForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPage\Participant\EventParticipantForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Participant\AddEventParticipantForm.resx">
       <DependentUpon>AddEventParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Participant\EditParticipantForm.resx">
+      <DependentUpon>EditParticipantForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Participant\EventParticipantForm.resx">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>

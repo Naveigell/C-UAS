@@ -144,9 +144,9 @@
             this.buttonTambahEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonTambahEvent.Location = new System.Drawing.Point(13, 400);
             this.buttonTambahEvent.Name = "buttonTambahEvent";
-            this.buttonTambahEvent.Size = new System.Drawing.Size(130, 53);
+            this.buttonTambahEvent.Size = new System.Drawing.Size(170, 53);
             this.buttonTambahEvent.TabIndex = 1;
-            this.buttonTambahEvent.Text = "Tambah";
+            this.buttonTambahEvent.Text = "Tambah Event";
             this.buttonTambahEvent.UseVisualStyleBackColor = false;
             this.buttonTambahEvent.Click += new System.EventHandler(this.buttonTambahEvent_Click);
             // 
@@ -169,7 +169,7 @@
             this.buttonLihatPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLihatPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLihatPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatPeserta.Location = new System.Drawing.Point(168, 400);
+            this.buttonLihatPeserta.Location = new System.Drawing.Point(211, 400);
             this.buttonLihatPeserta.Name = "buttonLihatPeserta";
             this.buttonLihatPeserta.Size = new System.Drawing.Size(150, 53);
             this.buttonLihatPeserta.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.buttonLihatHasil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLihatHasil.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLihatHasil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatHasil.Location = new System.Drawing.Point(349, 400);
+            this.buttonLihatHasil.Location = new System.Drawing.Point(392, 400);
             this.buttonLihatHasil.Name = "buttonLihatHasil";
             this.buttonLihatHasil.Size = new System.Drawing.Size(130, 53);
             this.buttonLihatHasil.TabIndex = 4;
@@ -198,7 +198,7 @@
             this.buttonEditEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditEvent.Location = new System.Drawing.Point(512, 400);
+            this.buttonEditEvent.Location = new System.Drawing.Point(555, 400);
             this.buttonEditEvent.Name = "buttonEditEvent";
             this.buttonEditEvent.Size = new System.Drawing.Size(130, 53);
             this.buttonEditEvent.TabIndex = 5;
