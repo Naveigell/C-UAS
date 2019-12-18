@@ -14,3 +14,6 @@ D:\C#\UAS\obj\Debug\UAS.FormPage.EventParticipant.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.EditEventForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Participant.AddEventParticipantForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Participant.EditParticipantForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.RoundForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.AddRoundForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.IndividualEvent.resources

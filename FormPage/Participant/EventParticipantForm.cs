@@ -3,6 +3,7 @@ using System.Collections;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using UAS.FormPage.Participant;
+using UAS.FormPage.Schedule;
 using UAS.Scripts;
 using UAS.Scripts.Model;
 
@@ -106,6 +107,19 @@ namespace UAS.FormPage {
             editParticipant.SetParticipantName(participantName);
             editParticipant.SetParticipantCellulerPhone(participantCellulerPhone);
             editParticipant.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+        }
+
+        private void buttonLihatJadwal_Click(object sender, EventArgs e) {
+            RoundForm scheduleForm = new RoundForm();
+
+            this.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            // passing value ke form berikutnya
+            scheduleForm.SetEventID(eventID);
+            scheduleForm.ShowDialog(this);
             LoadData();
 
             this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose

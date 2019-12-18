@@ -121,6 +121,7 @@
             this.buttonLihatJadwal.TabIndex = 3;
             this.buttonLihatJadwal.Text = "Lihat Jadwal";
             this.buttonLihatJadwal.UseVisualStyleBackColor = false;
+            this.buttonLihatJadwal.Click += new System.EventHandler(this.buttonLihatJadwal_Click);
             // 
             // buttonEditParticipant
             // 

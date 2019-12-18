@@ -76,6 +76,24 @@
     <Compile Include="FormPage\Participant\EventParticipantForm.Designer.cs">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\Schedule\AddRoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\AddRoundForm.Designer.cs">
+      <DependentUpon>AddRoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Schedule\IndividualEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\IndividualEvent.Designer.cs">
+      <DependentUpon>IndividualEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Schedule\RoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\RoundForm.Designer.cs">
+      <DependentUpon>RoundForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +130,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Participant\EventParticipantForm.resx">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\AddRoundForm.resx">
+      <DependentUpon>AddRoundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\IndividualEvent.resx">
+      <DependentUpon>IndividualEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\RoundForm.resx">
+      <DependentUpon>RoundForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

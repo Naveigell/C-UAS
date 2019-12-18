@@ -27,7 +27,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 				CREATE TABLE admin(
 					id_admin INT IDENTITY(1, 1) PRIMARY KEY,
 					email VARCHAR(20) NOT NULL,
-					[password] VARCHAR(20) NOT NULL
+					[password] VARCHAR(20)  NOT NULL
 				);
 			END;
 
@@ -79,7 +79,48 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 		IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'schedules')
 			BEGIN
 				CREATE TABLE schedules(
-					
+					id_schedule INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+					id_event VARCHAR(20) NULL,
+					rounds INT NOT NULL,
+					eliminate TINYINT NOT NULL,
+					nama_round VARCHAR(30) NOT NULL
+				);
+			END;
+
+		IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'score_by_goal')
+			BEGIN
+				CREATE TABLE score_by_goal (
+					id_score_by_goal INT IDENTITY(1, 1) PRIMARY KEY,
+					id_scedule INT NULL,
+					id_peserta1 VARCHAR(20) NULL,
+					id_peserta2 VARCHAR(20) NULL,
+					waktu_pelaksanaan DATETIME NULL,
+					score_by_goal_score VARCHAR(10) NOT NULL,
+					score_by_goal_venue VARCHAR(20) NOT NULL
+				);
+			END;
+
+		IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'score_by_time')
+			BEGIN
+				CREATE TABLE score_by_time (
+					id_score_by_time INT IDENTITY(1, 1) PRIMARY KEY,
+					id_scedule INT NULL,
+					id_peserta1 VARCHAR(20) NULL,
+					waktu_pelaksanaan DATETIME NULL,
+					score_by_time_score VARCHAR(10) NOT NULL,
+					score_by_time_venue VARCHAR(20) NOT NULL
+				);
+			END;
+
+		IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'score_by_individual')
+			BEGIN
+				CREATE TABLE score_by_individual (
+					id_score_by_individual INT IDENTITY(1, 1) PRIMARY KEY,
+					id_scedule INT NULL,
+					id_peserta1 VARCHAR(20) NULL,
+					waktu_pelaksanaan DATETIME NULL,
+					score_by_individual_score VARCHAR(10) NOT NULL,
+					score_by_individual_venue VARCHAR(20) NOT NULL
 				);
 			END;
 
