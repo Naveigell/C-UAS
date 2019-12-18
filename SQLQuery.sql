@@ -117,6 +117,8 @@ ALTER TABLE ranking
 DELETE FROM peserta
 DELETE FROM ranking
 DELETE FROM event_olahraga
+
+  SELECT TOP 1 *, CONVERT (int, SUBSTRING(id_peserta, 6, LEN(id_peserta))) AS SortingID FROM (SELECT * FROM peserta WHERE id_event = 'CTR002') AS a ORDER BY SortingID DESC
  
 INSERT INTO event_olahraga (id_event, nama_event, tanggal_pelaksanaan_event, tanggal_event_selesai, tipe_event, event_gender, deskripsi, status_event, created_at, updated_at) VALUES
 ('AOV001', 'AOV', '2019-12-04 00:00:00', '2019-12-06 00:00:00', 'Kelompok', 'Man', 'Untuk semua umur', 1, NULL, NULL),
