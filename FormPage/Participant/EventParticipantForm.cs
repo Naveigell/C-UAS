@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using UAS.FormPage.Participant;
 using UAS.Scripts;
 using UAS.Scripts.Model;
 
@@ -28,7 +29,8 @@ namespace UAS.FormPage {
             eventID = id;
         }
 
-        private void EventParticipant_Load(object sender, EventArgs e) {
+        private void LoadData() {
+            dataGridView.Rows.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("peserta")
                                                .Where("id_event", "=", eventID);
@@ -56,6 +58,23 @@ namespace UAS.FormPage {
                 Console.WriteLine("Error : " + exception.Message);
             }
 
+        }
+
+        private void EventParticipant_Load(object sender, EventArgs e) {
+            LoadData();
+        }
+
+        private void buttonTambahPeserta_Click(object sender, EventArgs e) {
+            AddEventParticipantForm addParticipant = new AddEventParticipantForm();
+
+            this.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            // passing id event ke form berikutnya
+            addParticipant.SetEventID(eventID);
+            addParticipant.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
         }
     }
 }

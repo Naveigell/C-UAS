@@ -29,6 +29,10 @@
             this.ParticipantCellularPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParticipantType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParticipantGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonTambahPeserta = new System.Windows.Forms.Button();
+            this.buttonLihatJadwal = new System.Windows.Forms.Button();
+            this.buttonBuatJadwal = new System.Windows.Forms.Button();
+            this.buttonHapusJadwal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,11 +94,72 @@
             this.ParticipantGender.Name = "ParticipantGender";
             this.ParticipantGender.ReadOnly = true;
             // 
+            // buttonTambahPeserta
+            // 
+            this.buttonTambahPeserta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonTambahPeserta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTambahPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTambahPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTambahPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonTambahPeserta.Location = new System.Drawing.Point(33, 476);
+            this.buttonTambahPeserta.Name = "buttonTambahPeserta";
+            this.buttonTambahPeserta.Size = new System.Drawing.Size(170, 53);
+            this.buttonTambahPeserta.TabIndex = 2;
+            this.buttonTambahPeserta.Text = "Tambah Peserta";
+            this.buttonTambahPeserta.UseVisualStyleBackColor = false;
+            this.buttonTambahPeserta.Click += new System.EventHandler(this.buttonTambahPeserta_Click);
+            // 
+            // buttonLihatJadwal
+            // 
+            this.buttonLihatJadwal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonLihatJadwal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLihatJadwal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLihatJadwal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLihatJadwal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLihatJadwal.Location = new System.Drawing.Point(233, 476);
+            this.buttonLihatJadwal.Name = "buttonLihatJadwal";
+            this.buttonLihatJadwal.Size = new System.Drawing.Size(150, 53);
+            this.buttonLihatJadwal.TabIndex = 3;
+            this.buttonLihatJadwal.Text = "Lihat Jadwal";
+            this.buttonLihatJadwal.UseVisualStyleBackColor = false;
+            // 
+            // buttonBuatJadwal
+            // 
+            this.buttonBuatJadwal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonBuatJadwal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBuatJadwal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuatJadwal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuatJadwal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBuatJadwal.Location = new System.Drawing.Point(415, 476);
+            this.buttonBuatJadwal.Name = "buttonBuatJadwal";
+            this.buttonBuatJadwal.Size = new System.Drawing.Size(150, 53);
+            this.buttonBuatJadwal.TabIndex = 4;
+            this.buttonBuatJadwal.Text = "Buat Jadwal";
+            this.buttonBuatJadwal.UseVisualStyleBackColor = false;
+            // 
+            // buttonHapusJadwal
+            // 
+            this.buttonHapusJadwal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonHapusJadwal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHapusJadwal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHapusJadwal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHapusJadwal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonHapusJadwal.Location = new System.Drawing.Point(601, 476);
+            this.buttonHapusJadwal.Name = "buttonHapusJadwal";
+            this.buttonHapusJadwal.Size = new System.Drawing.Size(150, 53);
+            this.buttonHapusJadwal.TabIndex = 5;
+            this.buttonHapusJadwal.Text = "Hapus Jadwal";
+            this.buttonHapusJadwal.UseVisualStyleBackColor = false;
+            // 
             // EventParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 580);
+            this.Controls.Add(this.buttonHapusJadwal);
+            this.Controls.Add(this.buttonBuatJadwal);
+            this.Controls.Add(this.buttonLihatJadwal);
+            this.Controls.Add(this.buttonTambahPeserta);
             this.Controls.Add(this.dataGridView);
             this.Name = "EventParticipant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -113,5 +178,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantCellularPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantGender;
+        private System.Windows.Forms.Button buttonTambahPeserta;
+        private System.Windows.Forms.Button buttonLihatJadwal;
+        private System.Windows.Forms.Button buttonBuatJadwal;
+        private System.Windows.Forms.Button buttonHapusJadwal;
     }
 }

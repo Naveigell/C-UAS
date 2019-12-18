@@ -11,6 +11,7 @@ namespace UAS.Scripts.Model {
         private String query = "";
         private ArrayList arrayList;
         public static int LIKE_LEFT = 60, LIKE_RIGHT = 90, LIKE_BOTH = 14;
+        public static String ORDER_ASCENDING = "ASC", ORDER_DESCENDING = "DESC";
 
         public QueryBuilder() {
             arrayList = new ArrayList();
@@ -114,15 +115,15 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
-        public QueryBuilder OrderBy(String order) {
-            this.query += "ORDER BY " + order + " ";
+        public QueryBuilder OrderBy(String by, String order) {
+            this.query += " ORDER BY " + by + " " + order + " ";
 
             return this;
         }
 
         public QueryBuilder Limit(int offset, int limit) {
 
-            this.query += "OFFSET " + offset + " ROWS FETCH NEXT " + limit + " ROWS ONLY";
+            this.query += " OFFSET " + offset + " ROWS FETCH NEXT " + limit + " ROWS ONLY";
 
             return this;
         }

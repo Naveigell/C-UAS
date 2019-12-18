@@ -42,7 +42,7 @@ namespace UAS.Page {
                 
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("event_olahraga")
-                                               .OrderBy("id_event")
+                                               .OrderBy("id_event", QueryBuilder.ORDER_ASCENDING)
                                                // sebelum limit harus menggunakan order by
                                                .Limit(offset, limit);
 

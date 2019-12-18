@@ -46,23 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPage\AddEventForm.cs">
+    <Compile Include="FormPage\Event\AddEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPage\AddEventForm.Designer.cs">
+    <Compile Include="FormPage\Event\AddEventForm.Designer.cs">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPage\EditEventForm.cs">
+    <Compile Include="FormPage\Event\EditEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPage\EditEventForm.Designer.cs">
+    <Compile Include="FormPage\Event\EditEventForm.Designer.cs">
       <DependentUpon>EditEventForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPage\EventParticipant.cs">
+    <Compile Include="FormPage\Participant\AddEventParticipantForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPage\EventParticipant.Designer.cs">
-      <DependentUpon>EventParticipant.cs</DependentUpon>
+    <Compile Include="FormPage\Participant\AddEventParticipantForm.Designer.cs">
+      <DependentUpon>AddEventParticipantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Participant\EventParticipantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Participant\EventParticipantForm.Designer.cs">
+      <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -86,14 +92,17 @@
     </Compile>
     <Compile Include="Scripts\Model\Database.cs" />
     <Compile Include="Scripts\Model\QueryBuilder.cs" />
-    <EmbeddedResource Include="FormPage\AddEventForm.resx">
+    <EmbeddedResource Include="FormPage\Event\AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPage\EditEventForm.resx">
+    <EmbeddedResource Include="FormPage\Event\EditEventForm.resx">
       <DependentUpon>EditEventForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPage\EventParticipant.resx">
-      <DependentUpon>EventParticipant.cs</DependentUpon>
+    <EmbeddedResource Include="FormPage\Participant\AddEventParticipantForm.resx">
+      <DependentUpon>AddEventParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Participant\EventParticipantForm.resx">
+      <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
