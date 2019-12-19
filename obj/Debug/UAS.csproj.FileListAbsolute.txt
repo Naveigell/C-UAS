@@ -19,3 +19,4 @@ D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.AddRoundForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.IndividualEvent.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Individual.IndividualAddForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.EditRoundForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Individual.EditIndividualForm.resources

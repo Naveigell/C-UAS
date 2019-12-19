@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,8 +17,10 @@ namespace UAS.FormPage.Schedule {
     public partial class IndividualEvent : Form {
 
         private String eventID, scheduleID;
+        private String[] individualSchedulesID;
         private QueryBuilder queryBuilder;
         private Database database;
+        private ArrayList arrayList;
 
         public IndividualEvent() {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace UAS.FormPage.Schedule {
         }
 
         private void LoadData() {
+            dataGridView.Rows.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("score_by_individual")
                                                .InnerJoin("schedules", "schedules.id_schedule", "=", "score_by_individual.id_scedule")
@@ -53,6 +57,12 @@ namespace UAS.FormPage.Schedule {
                         dataReader["score_by_individual_venue"].ToString()
                     );
 
+                    arrayList.Add(dataReader["id_score_by_individual"].ToString());
+                }
+
+                individualSchedulesID = new String[arrayList.Count];
+                for (int i = 0; i < arrayList.Count; i++) {
+                    individualSchedulesID[i] = arrayList[i].ToString();
                 }
 
             } catch(Exception exception) {
@@ -79,9 +89,32 @@ namespace UAS.FormPage.Schedule {
             LoadData();
         }
 
+        private void buttonEditJadwalPesertaIndividual_Click(object sender, EventArgs e) {
+
+            int rowCount = dataGridView.CurrentCell.RowIndex;
+            String skor = dataGridView.Rows[rowCount].Cells[3].Value.ToString();
+            String venue = dataGridView.Rows[rowCount].Cells[4].Value.ToString();
+
+            EditIndividualForm editIndividualForm = new EditIndividualForm();
+
+            this.Opacity = 0.4;
+
+            editIndividualForm.SetEventID(eventID);
+            editIndividualForm.SetScheduleID(scheduleID);
+            editIndividualForm.SetScore(skor);
+            editIndividualForm.SetVenue(venue);
+            editIndividualForm.SetIndividualScheduleID(individualSchedulesID[rowCount]);
+            editIndividualForm.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1;
+        }
+
         private void InitializeVariable() {
             queryBuilder = new QueryBuilder();
             database = new Database(Properties.Settings.Default.dbSources);
+
+            arrayList = new ArrayList();
 
             dataGridView.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.Columns[0].Width = 50;
