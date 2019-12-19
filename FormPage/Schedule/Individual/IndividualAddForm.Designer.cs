@@ -50,6 +50,7 @@
             this.buttonAddEvent.TabIndex = 39;
             this.buttonAddEvent.Text = "Tambah";
             this.buttonAddEvent.UseVisualStyleBackColor = false;
+            this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
             // 
             // comboBoxParticipantName
             // 
@@ -180,7 +181,9 @@
             this.Controls.Add(this.textBoxEventVenue);
             this.Controls.Add(this.label1);
             this.Name = "IndividualAddForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IndividualAddForm";
+            this.Load += new System.EventHandler(this.IndividualAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

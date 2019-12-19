@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,13 +36,43 @@ namespace UAS.FormPage.Schedule {
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("score_by_individual")
                                                .InnerJoin("schedules", "schedules.id_schedule", "=", "score_by_individual.id_scedule")
+                                               .InnerJoin("peserta", "peserta.id_peserta", "=", "score_by_individual.id_peserta1")
                                                .Where("schedules.id_schedule", "=", scheduleID);
 
-            Console.WriteLine(builder.Get());
+            SqlDataReader dataReader = database.ExecuteQuery(builder.Get());
+            int number = 0;
+
+            try {
+
+                while (dataReader.Read()) {
+                    dataGridView.Rows.Add(
+                        ++number,
+                        dataReader["nama_peserta"].ToString(),
+                        dataReader["waktu_pelaksanaan"].ToString(),
+                        dataReader["score_by_individual_score"].ToString(),
+                        dataReader["score_by_individual_venue"].ToString()
+                    );
+
+                }
+
+            } catch(Exception exception) {
+                Console.WriteLine(exception);
+            }
+            dataReader.Close();
+            database.CloseConnection();
         }
 
         private void buttonTambahJadwalPeserta_Click(object sender, EventArgs e) {
             IndividualAddForm individualAddForm = new IndividualAddForm();
+
+            this.Opacity = 0.4;
+
+            individualAddForm.SetEventID(eventID);
+            individualAddForm.SetScheduleID(scheduleID);
+            individualAddForm.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1;
         }
 
         private void IndividualEvent_Load(object sender, EventArgs e) {
