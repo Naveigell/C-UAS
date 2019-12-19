@@ -29,6 +29,8 @@
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonEditJadwalPeserta = new System.Windows.Forms.Button();
+            this.buttonTambahJadwalPeserta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,14 +91,47 @@
             this.Venue.Name = "Venue";
             this.Venue.ReadOnly = true;
             // 
+            // buttonEditJadwalPeserta
+            // 
+            this.buttonEditJadwalPeserta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonEditJadwalPeserta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEditJadwalPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditJadwalPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditJadwalPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEditJadwalPeserta.Location = new System.Drawing.Point(231, 472);
+            this.buttonEditJadwalPeserta.Name = "buttonEditJadwalPeserta";
+            this.buttonEditJadwalPeserta.Size = new System.Drawing.Size(150, 53);
+            this.buttonEditJadwalPeserta.TabIndex = 7;
+            this.buttonEditJadwalPeserta.Text = "Edit Jadwal";
+            this.buttonEditJadwalPeserta.UseVisualStyleBackColor = false;
+            // 
+            // buttonTambahJadwalPeserta
+            // 
+            this.buttonTambahJadwalPeserta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonTambahJadwalPeserta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTambahJadwalPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTambahJadwalPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTambahJadwalPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonTambahJadwalPeserta.Location = new System.Drawing.Point(21, 472);
+            this.buttonTambahJadwalPeserta.Name = "buttonTambahJadwalPeserta";
+            this.buttonTambahJadwalPeserta.Size = new System.Drawing.Size(170, 53);
+            this.buttonTambahJadwalPeserta.TabIndex = 5;
+            this.buttonTambahJadwalPeserta.Text = "Tambah Jadwal";
+            this.buttonTambahJadwalPeserta.UseVisualStyleBackColor = false;
+            this.buttonTambahJadwalPeserta.Click += new System.EventHandler(this.buttonTambahJadwalPeserta_Click);
+            // 
             // IndividualEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 583);
+            this.Controls.Add(this.buttonEditJadwalPeserta);
+            this.Controls.Add(this.buttonTambahJadwalPeserta);
             this.Controls.Add(this.dataGridView);
             this.Name = "IndividualEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IndividualEvent";
+            this.Load += new System.EventHandler(this.IndividualEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -110,5 +145,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Score;
         private System.Windows.Forms.DataGridViewTextBoxColumn Venue;
+        private System.Windows.Forms.Button buttonEditJadwalPeserta;
+        private System.Windows.Forms.Button buttonTambahJadwalPeserta;
     }
 }

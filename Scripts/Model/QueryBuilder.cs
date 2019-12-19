@@ -35,6 +35,13 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
+        public QueryBuilder InnerJoin(String table, String value1, String operatorr, String value2) {
+
+            this.query += " INNER JOIN " + table + " ON " + value1 + " " + operatorr + " " + value2 + " ";
+
+            return this;
+        }
+
         public QueryBuilder Values(String[][] values) {
 
             for (int i = 0; i < values.Length; i++) {

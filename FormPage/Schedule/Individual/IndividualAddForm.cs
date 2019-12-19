@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UAS.FormPage.Schedule {
-    public partial class IndividualEvent : Form {
-        public IndividualEvent() {
+namespace UAS.FormPage.Schedule.Individual {
+    public partial class IndividualAddForm : Form {
+        public IndividualAddForm() {
             InitializeComponent();
         }
     }

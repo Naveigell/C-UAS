@@ -24,13 +24,13 @@
         /// </summary>
         private void InitializeComponent() {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonEditRonde = new System.Windows.Forms.Button();
-            this.buttonLihatRonde = new System.Windows.Forms.Button();
-            this.buttonTambahRonde = new System.Windows.Forms.Button();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScheduleRound = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonEditRonde = new System.Windows.Forms.Button();
+            this.buttonLihatRonde = new System.Windows.Forms.Button();
+            this.buttonTambahRonde = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,30 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(849, 402);
             this.dataGridView.TabIndex = 0;
+            // 
+            // ColumnNumber
+            // 
+            this.ColumnNumber.HeaderText = "No";
+            this.ColumnNumber.MinimumWidth = 6;
+            this.ColumnNumber.Name = "ColumnNumber";
+            // 
+            // ScheduleRound
+            // 
+            this.ScheduleRound.HeaderText = "Round";
+            this.ScheduleRound.MinimumWidth = 6;
+            this.ScheduleRound.Name = "ScheduleRound";
+            // 
+            // EventType
+            // 
+            this.EventType.HeaderText = "Tipe";
+            this.EventType.MinimumWidth = 6;
+            this.EventType.Name = "EventType";
+            // 
+            // EventName
+            // 
+            this.EventName.HeaderText = "Nama";
+            this.EventName.MinimumWidth = 6;
+            this.EventName.Name = "EventName";
             // 
             // buttonEditRonde
             // 
@@ -81,6 +105,7 @@
             this.buttonLihatRonde.TabIndex = 6;
             this.buttonLihatRonde.Text = "Lihat Ronde";
             this.buttonLihatRonde.UseVisualStyleBackColor = false;
+            this.buttonLihatRonde.Click += new System.EventHandler(this.buttonLihatRonde_Click);
             // 
             // buttonTambahRonde
             // 
@@ -96,30 +121,6 @@
             this.buttonTambahRonde.Text = "Tambah Ronde";
             this.buttonTambahRonde.UseVisualStyleBackColor = false;
             this.buttonTambahRonde.Click += new System.EventHandler(this.buttonTambahRonde_Click);
-            // 
-            // ColumnNumber
-            // 
-            this.ColumnNumber.HeaderText = "No";
-            this.ColumnNumber.MinimumWidth = 6;
-            this.ColumnNumber.Name = "ColumnNumber";
-            // 
-            // ScheduleRound
-            // 
-            this.ScheduleRound.HeaderText = "Round";
-            this.ScheduleRound.MinimumWidth = 6;
-            this.ScheduleRound.Name = "ScheduleRound";
-            // 
-            // EventType
-            // 
-            this.EventType.HeaderText = "Tipe";
-            this.EventType.MinimumWidth = 6;
-            this.EventType.Name = "EventType";
-            // 
-            // EventName
-            // 
-            this.EventName.HeaderText = "Nama";
-            this.EventName.MinimumWidth = 6;
-            this.EventName.Name = "EventName";
             // 
             // RoundForm
             // 

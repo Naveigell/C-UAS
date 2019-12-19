@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Collections;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UAS.Scripts;
 using UAS.Scripts.Model;
@@ -17,6 +11,9 @@ namespace UAS.FormPage.Schedule {
         private String eventID;
         private QueryBuilder queryBuilder;
         private Database database;
+
+        private ArrayList arrayList;
+        private String[] schedulesID;
 
         public RoundForm() {
             InitializeComponent();
@@ -33,6 +30,8 @@ namespace UAS.FormPage.Schedule {
 
             dataGridView.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.Columns[0].Width = 50;
+
+            arrayList = new ArrayList();
         }
 
         private void RoundForm_Load(object sender, EventArgs e) {
@@ -52,6 +51,8 @@ namespace UAS.FormPage.Schedule {
 
                 while (dataReader.Read()) {
 
+                    arrayList.Add(dataReader["id_schedule"].ToString());
+
                     dataGridView.Rows.Add(
                         ++number,
                         dataReader["rounds"].ToString(),
@@ -59,6 +60,11 @@ namespace UAS.FormPage.Schedule {
                         int.Parse(dataReader["eliminate"].ToString()) == 1 ? "Eliminasi" : "Ronde",
                         dataReader["nama_round"].ToString()
                     );
+
+                    schedulesID = new string[arrayList.Count];
+                    for (int i = 0; i < arrayList.Count; i++) {
+                        schedulesID[i] = arrayList[i].ToString();
+                    }
                 }
 
             } catch(Exception ex) {
@@ -76,6 +82,33 @@ namespace UAS.FormPage.Schedule {
             // passing id event ke form berikutnya
             addRoundForm.SetEventID(eventID);
             addRoundForm.ShowDialog(this);
+            LoadData();
+
+            this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+        }
+
+        private void buttonLihatRonde_Click(object sender, EventArgs e) {
+
+            if (dataGridView.Rows.Count < 1) return;
+
+            int rowCount = dataGridView.CurrentCell.RowIndex;
+            String eventType = dataGridView.Rows[rowCount].Cells[2].Value.ToString();
+
+            this.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            // cek jika event ini bertipe ronde
+            if (eventType.ToLower().Equals("ronde")) {
+
+                IndividualEvent individualEvent = new IndividualEvent();
+
+                individualEvent.SetEventID(eventID);
+                individualEvent.SetScheduleID(schedulesID[rowCount]);
+                individualEvent.ShowDialog(this);
+            } else {
+
+
+            }
+
             LoadData();
 
             this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
