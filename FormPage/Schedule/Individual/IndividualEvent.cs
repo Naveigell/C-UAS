@@ -129,8 +129,8 @@ namespace UAS.FormPage.Schedule {
                 DialogResult dialogResult = MessageBox.Show("Hapus " + name + "- (" + id + ")", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes) {
 
-                    QueryBuilder builder = queryBuilder.DeleteFrom("schedules")
-                                                       .Where("id_schedule", "=", id);
+                    QueryBuilder builder = queryBuilder.DeleteFrom("score_by_individual")
+                                                       .Where("id_score_by_individual", "=", id);
 
                     int rowsAffected = database.ExecuteNonQuery(builder.Get());
                     if (rowsAffected > 0) {

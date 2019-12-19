@@ -161,8 +161,18 @@ DELETE FROM field_peserta
 DELETE FROM ranking
 DELETE FROM event_olahraga
 
-  SELECT TOP 1 *, CONVERT (int, SUBSTRING(id_peserta, 6, LEN(id_peserta))) AS SortingID FROM (SELECT * FROM peserta WHERE id_event = 'CTR002') AS a ORDER BY SortingID DESC
+SELECT TOP 1 *, CONVERT (int, SUBSTRING(id_peserta, 6, LEN(id_peserta))) AS SortingID FROM (SELECT * FROM peserta WHERE id_event = 'CTR002') AS a ORDER BY SortingID DESC
  
+SELECT score_by_goal.*,
+	   peserta1.id_peserta AS id1,
+	   peserta2.id_peserta AS id2,
+	   peserta1.nama_peserta AS nama1,
+	   peserta2.nama_peserta AS nama2
+	   FROM score_by_goal
+	   INNER JOIN peserta peserta1 ON score_by_goal.id_peserta1 = peserta1.id_peserta
+	   INNER JOIN peserta peserta2 ON score_by_goal.id_peserta2 = peserta2.id_peserta
+	   WHERE score_by_goal.id_scedule = '4'
+
 INSERT INTO event_olahraga (id_event, nama_event, tanggal_pelaksanaan_event, tanggal_event_selesai, tipe_event, event_gender, deskripsi, status_event, created_at, updated_at) VALUES
 ('AOV001', 'AOV', '2019-12-04 00:00:00', '2019-12-06 00:00:00', 'Kelompok', 'Man', 'Untuk semua umur', 1, NULL, NULL),
 ('BDM001', 'Badminton', '2019-12-15 00:00:00', '2019-12-18 00:00:00', 'Perorangan', 'Man', 'Perlombaan untuk senior', 1, NULL, NULL),

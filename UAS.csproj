@@ -112,6 +112,24 @@
     <Compile Include="FormPage\Schedule\RoundForm.Designer.cs">
       <DependentUpon>RoundForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\Schedule\Versus\EditVersusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\Versus\EditVersusForm.Designer.cs">
+      <DependentUpon>EditVersusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Schedule\Versus\VersusAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\Versus\VersusAddForm.Designer.cs">
+      <DependentUpon>VersusAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Schedule\Versus\VersusEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Schedule\Versus\VersusEvent.Designer.cs">
+      <DependentUpon>VersusEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +184,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Schedule\RoundForm.resx">
       <DependentUpon>RoundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\Versus\EditVersusForm.resx">
+      <DependentUpon>EditVersusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\Versus\VersusAddForm.resx">
+      <DependentUpon>VersusAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Schedule\Versus\VersusEvent.resx">
+      <DependentUpon>VersusEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

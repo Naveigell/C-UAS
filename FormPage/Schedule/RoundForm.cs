@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using UAS.FormPage.Schedule.Versus;
 using UAS.Scripts;
 using UAS.Scripts.Model;
 
@@ -106,7 +107,11 @@ namespace UAS.FormPage.Schedule {
                 individualEvent.ShowDialog(this);
             } else {
 
+                VersusEvent versusEvent = new VersusEvent();
 
+                versusEvent.SetEventID(eventID);
+                versusEvent.SetScheduleID(schedulesID[rowCount]);
+                versusEvent.ShowDialog(this);
             }
 
             LoadData();

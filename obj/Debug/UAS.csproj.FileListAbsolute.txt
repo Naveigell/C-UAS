@@ -20,3 +20,6 @@ D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.IndividualEvent.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Individual.IndividualAddForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.EditRoundForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Individual.EditIndividualForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.VersusEvent.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.VersusAddForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.EditVersusForm.resources
