@@ -91,6 +91,7 @@
             this.buttonEditRonde.TabIndex = 7;
             this.buttonEditRonde.Text = "Edit Ronde";
             this.buttonEditRonde.UseVisualStyleBackColor = false;
+            this.buttonEditRonde.Click += new System.EventHandler(this.buttonEditRonde_Click);
             // 
             // buttonLihatRonde
             // 

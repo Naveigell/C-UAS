@@ -113,5 +113,27 @@ namespace UAS.FormPage.Schedule {
 
             this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
         }
+
+        private void buttonEditRonde_Click(object sender, EventArgs e) {
+            if (dataGridView.Rows.Count < 1) return;
+
+            int rowCount = dataGridView.CurrentCell.RowIndex;
+            String round = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
+            String roundName = dataGridView.Rows[rowCount].Cells[3].Value.ToString();
+
+            this.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            EditRoundForm editRoundForm = new EditRoundForm();
+            editRoundForm.SetEventID(eventID);
+            editRoundForm.SetRound(round);
+            editRoundForm.SetRoundName(roundName);
+            editRoundForm.SetSceduleID(schedulesID[rowCount]);
+
+            editRoundForm.ShowDialog(this);
+
+            LoadData();
+
+            this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+        }
     }
 }
