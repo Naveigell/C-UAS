@@ -66,6 +66,7 @@ namespace UAS.FormPage.Participant {
                         index++;
                         lastParticipantID = dataReader["id_peserta"].ToString();
                     }
+                    Console.WriteLine(lastParticipantID);
 
                     dataReader.Close();
 

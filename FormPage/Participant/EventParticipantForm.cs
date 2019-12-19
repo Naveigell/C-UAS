@@ -124,5 +124,40 @@ namespace UAS.FormPage {
 
             this.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
         }
+
+        private void buttonDeleteParticipant_Click(object sender, EventArgs e) {
+            try {
+
+                /*if (dataGridView.SelectedRows.Count > 0) {*/
+                //
+                // BUG
+                //
+                String name = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                String id = tempIDArray[dataGridView.CurrentCell.RowIndex];
+
+                DialogResult dialogResult = MessageBox.Show("Hapus " + name + "- (" + id + ")", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes) {
+
+                    QueryBuilder builder = queryBuilder.DeleteFrom("peserta")
+                                                       .Where("id_peserta", "=", id);
+
+                    int rowsAffected = database.ExecuteNonQuery(builder.Get());
+                    if (rowsAffected > 0) {
+                        MessageBox.Show("Hapus berhasil", "Success");
+                        LoadData();
+                    } else {
+                        MessageBox.Show("Hapus gagal", "Error");
+                    }
+
+                }
+
+                /*} else {
+                    Console.WriteLine("No rows selected");
+                }*/
+
+            } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
+        }
     }
 }

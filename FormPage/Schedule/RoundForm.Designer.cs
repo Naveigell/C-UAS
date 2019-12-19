@@ -31,6 +31,7 @@
             this.buttonEditRonde = new System.Windows.Forms.Button();
             this.buttonLihatRonde = new System.Windows.Forms.Button();
             this.buttonTambahRonde = new System.Windows.Forms.Button();
+            this.buttonDeleteRound = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +124,27 @@
             this.buttonTambahRonde.UseVisualStyleBackColor = false;
             this.buttonTambahRonde.Click += new System.EventHandler(this.buttonTambahRonde_Click);
             // 
+            // buttonDeleteRound
+            // 
+            this.buttonDeleteRound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonDeleteRound.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDeleteRound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteRound.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteRound.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDeleteRound.Location = new System.Drawing.Point(668, 444);
+            this.buttonDeleteRound.Name = "buttonDeleteRound";
+            this.buttonDeleteRound.Size = new System.Drawing.Size(150, 53);
+            this.buttonDeleteRound.TabIndex = 8;
+            this.buttonDeleteRound.Text = "Hapus Ronde";
+            this.buttonDeleteRound.UseVisualStyleBackColor = false;
+            this.buttonDeleteRound.Click += new System.EventHandler(this.buttonDeleteRound_Click);
+            // 
             // RoundForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 545);
+            this.Controls.Add(this.buttonDeleteRound);
             this.Controls.Add(this.buttonEditRonde);
             this.Controls.Add(this.buttonLihatRonde);
             this.Controls.Add(this.buttonTambahRonde);
@@ -151,5 +168,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ScheduleRound;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventType;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
+        private System.Windows.Forms.Button buttonDeleteRound;
     }
 }

@@ -91,23 +91,64 @@ namespace UAS.FormPage.Schedule {
 
         private void buttonEditJadwalPesertaIndividual_Click(object sender, EventArgs e) {
 
-            int rowCount = dataGridView.CurrentCell.RowIndex;
-            String skor = dataGridView.Rows[rowCount].Cells[3].Value.ToString();
-            String venue = dataGridView.Rows[rowCount].Cells[4].Value.ToString();
+            try {
 
-            EditIndividualForm editIndividualForm = new EditIndividualForm();
+                int rowCount = dataGridView.CurrentCell.RowIndex;
+                String skor = dataGridView.Rows[rowCount].Cells[3].Value.ToString();
+                String venue = dataGridView.Rows[rowCount].Cells[4].Value.ToString();
 
-            this.Opacity = 0.4;
+                EditIndividualForm editIndividualForm = new EditIndividualForm();
 
-            editIndividualForm.SetEventID(eventID);
-            editIndividualForm.SetScheduleID(scheduleID);
-            editIndividualForm.SetScore(skor);
-            editIndividualForm.SetVenue(venue);
-            editIndividualForm.SetIndividualScheduleID(individualSchedulesID[rowCount]);
-            editIndividualForm.ShowDialog(this);
-            LoadData();
+                this.Opacity = 0.4;
 
-            this.Opacity = 1;
+                editIndividualForm.SetEventID(eventID);
+                editIndividualForm.SetScheduleID(scheduleID);
+                editIndividualForm.SetScore(skor);
+                editIndividualForm.SetVenue(venue);
+                editIndividualForm.SetIndividualScheduleID(individualSchedulesID[rowCount]);
+                editIndividualForm.ShowDialog(this);
+                LoadData();
+
+                this.Opacity = 1;
+
+            } catch(Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        private void buttonDeleteSchedule_Click(object sender, EventArgs e) {
+            try {
+
+                /*if (dataGridView.SelectedRows.Count > 0) {*/
+                //
+                // BUG
+                //
+                String name = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                String id = individualSchedulesID[dataGridView.CurrentCell.RowIndex];
+
+                DialogResult dialogResult = MessageBox.Show("Hapus " + name + "- (" + id + ")", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes) {
+
+                    QueryBuilder builder = queryBuilder.DeleteFrom("schedules")
+                                                       .Where("id_schedule", "=", id);
+
+                    int rowsAffected = database.ExecuteNonQuery(builder.Get());
+                    if (rowsAffected > 0) {
+                        MessageBox.Show("Hapus berhasil", "Success");
+                        LoadData();
+                    } else {
+                        MessageBox.Show("Hapus gagal", "Error");
+                    }
+
+                }
+
+                /*} else {
+                    Console.WriteLine("No rows selected");
+                }*/
+
+            } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
         }
 
         private void InitializeVariable() {

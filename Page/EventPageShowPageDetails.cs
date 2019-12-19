@@ -36,6 +36,7 @@ namespace UAS.Page {
         }
 
         private void LoadEventData(int offset, int limit) {
+
             // clear rows dari data gridview
             dataGridView.Rows.Clear();
             dataGridView.Refresh();
@@ -217,6 +218,41 @@ namespace UAS.Page {
             RefreshEvent();
 
             form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+        }
+
+        private void buttonDeleteEvent_Click(object sender, EventArgs e) {
+            try {
+
+                /*if (dataGridView.SelectedRows.Count > 0) {*/
+                    //
+                    // BUG
+                    //
+                    String eventName = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                    String id = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
+
+                    DialogResult dialogResult = MessageBox.Show("Hapus " + eventName + "- (" + id + ")", "", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes) {
+
+                        QueryBuilder builder = queryBuilder.DeleteFrom("event_olahraga")
+                                                           .Where("id_event", "=", id);
+
+                        int rowsAffected = database.ExecuteNonQuery(builder.Get());
+                        if (rowsAffected > 0) {
+                            MessageBox.Show("Hapus berhasil", "Success");
+                            RefreshEvent();
+                        } else {
+                            MessageBox.Show("Hapus gagal", "Error");
+                        }
+
+                    } 
+
+                /*} else {
+                    Console.WriteLine("No rows selected");
+                }*/
+
+            } catch(Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
         }
     }
 }

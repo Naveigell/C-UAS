@@ -38,6 +38,7 @@
             this.buttonLihatPeserta = new System.Windows.Forms.Button();
             this.buttonLihatHasil = new System.Windows.Forms.Button();
             this.buttonEditEvent = new System.Windows.Forms.Button();
+            this.buttonDeleteEvent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,14 +203,30 @@
             this.buttonEditEvent.Name = "buttonEditEvent";
             this.buttonEditEvent.Size = new System.Drawing.Size(130, 53);
             this.buttonEditEvent.TabIndex = 5;
-            this.buttonEditEvent.Text = "Edit";
+            this.buttonEditEvent.Text = "Edit Event";
             this.buttonEditEvent.UseVisualStyleBackColor = false;
             this.buttonEditEvent.Click += new System.EventHandler(this.buttonEditEvent_Click);
+            // 
+            // buttonDeleteEvent
+            // 
+            this.buttonDeleteEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonDeleteEvent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDeleteEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(722, 400);
+            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(130, 53);
+            this.buttonDeleteEvent.TabIndex = 6;
+            this.buttonDeleteEvent.Text = "Hapus Event";
+            this.buttonDeleteEvent.UseVisualStyleBackColor = false;
+            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
             // 
             // EventPageShowPageDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonDeleteEvent);
             this.Controls.Add(this.buttonEditEvent);
             this.Controls.Add(this.buttonLihatHasil);
             this.Controls.Add(this.buttonLihatPeserta);
@@ -241,5 +258,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EventGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventStatus;
+        private System.Windows.Forms.Button buttonDeleteEvent;
     }
 }

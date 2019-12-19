@@ -31,6 +31,7 @@
             this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditJadwalPesertaIndividual = new System.Windows.Forms.Button();
             this.buttonTambahJadwalPeserta = new System.Windows.Forms.Button();
+            this.buttonDeleteSchedule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +122,27 @@
             this.buttonTambahJadwalPeserta.UseVisualStyleBackColor = false;
             this.buttonTambahJadwalPeserta.Click += new System.EventHandler(this.buttonTambahJadwalPeserta_Click);
             // 
+            // buttonDeleteSchedule
+            // 
+            this.buttonDeleteSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonDeleteSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDeleteSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteSchedule.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteSchedule.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDeleteSchedule.Location = new System.Drawing.Point(420, 472);
+            this.buttonDeleteSchedule.Name = "buttonDeleteSchedule";
+            this.buttonDeleteSchedule.Size = new System.Drawing.Size(150, 53);
+            this.buttonDeleteSchedule.TabIndex = 8;
+            this.buttonDeleteSchedule.Text = "Hapus Jadwal";
+            this.buttonDeleteSchedule.UseVisualStyleBackColor = false;
+            this.buttonDeleteSchedule.Click += new System.EventHandler(this.buttonDeleteSchedule_Click);
+            // 
             // IndividualEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 583);
+            this.Controls.Add(this.buttonDeleteSchedule);
             this.Controls.Add(this.buttonEditJadwalPesertaIndividual);
             this.Controls.Add(this.buttonTambahJadwalPeserta);
             this.Controls.Add(this.dataGridView);
@@ -148,5 +165,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Venue;
         private System.Windows.Forms.Button buttonEditJadwalPesertaIndividual;
         private System.Windows.Forms.Button buttonTambahJadwalPeserta;
+        private System.Windows.Forms.Button buttonDeleteSchedule;
     }
 }
