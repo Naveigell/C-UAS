@@ -32,7 +32,10 @@
             this.buttonLihatRonde = new System.Windows.Forms.Button();
             this.buttonTambahRonde = new System.Windows.Forms.Button();
             this.buttonDeleteRound = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -46,7 +49,7 @@
             this.ScheduleRound,
             this.EventType,
             this.EventName});
-            this.dataGridView.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView.Location = new System.Drawing.Point(12, 38);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
@@ -86,7 +89,7 @@
             this.buttonEditRonde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditRonde.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditRonde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditRonde.Location = new System.Drawing.Point(463, 444);
+            this.buttonEditRonde.Location = new System.Drawing.Point(463, 470);
             this.buttonEditRonde.Name = "buttonEditRonde";
             this.buttonEditRonde.Size = new System.Drawing.Size(150, 53);
             this.buttonEditRonde.TabIndex = 7;
@@ -101,7 +104,7 @@
             this.buttonLihatRonde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLihatRonde.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLihatRonde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatRonde.Location = new System.Drawing.Point(258, 444);
+            this.buttonLihatRonde.Location = new System.Drawing.Point(258, 470);
             this.buttonLihatRonde.Name = "buttonLihatRonde";
             this.buttonLihatRonde.Size = new System.Drawing.Size(150, 53);
             this.buttonLihatRonde.TabIndex = 6;
@@ -116,7 +119,7 @@
             this.buttonTambahRonde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambahRonde.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambahRonde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonTambahRonde.Location = new System.Drawing.Point(40, 444);
+            this.buttonTambahRonde.Location = new System.Drawing.Point(40, 470);
             this.buttonTambahRonde.Name = "buttonTambahRonde";
             this.buttonTambahRonde.Size = new System.Drawing.Size(170, 53);
             this.buttonTambahRonde.TabIndex = 5;
@@ -131,7 +134,7 @@
             this.buttonDeleteRound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteRound.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteRound.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDeleteRound.Location = new System.Drawing.Point(668, 444);
+            this.buttonDeleteRound.Location = new System.Drawing.Point(668, 470);
             this.buttonDeleteRound.Name = "buttonDeleteRound";
             this.buttonDeleteRound.Size = new System.Drawing.Size(150, 53);
             this.buttonDeleteRound.TabIndex = 8;
@@ -139,11 +142,34 @@
             this.buttonDeleteRound.UseVisualStyleBackColor = false;
             this.buttonDeleteRound.Click += new System.EventHandler(this.buttonDeleteRound_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(873, 27);
+            this.toolStrip1.TabIndex = 17;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
+            this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(29, 24);
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.ToolTipText = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // RoundForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 545);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonDeleteRound);
             this.Controls.Add(this.buttonEditRonde);
             this.Controls.Add(this.buttonLihatRonde);
@@ -154,7 +180,10 @@
             this.Text = "Round";
             this.Load += new System.EventHandler(this.RoundForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,5 +198,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EventType;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
         private System.Windows.Forms.Button buttonDeleteRound;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton buttonPrint;
     }
 }

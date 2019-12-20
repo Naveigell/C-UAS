@@ -32,7 +32,10 @@
             this.buttonDeleteParticipant = new System.Windows.Forms.Button();
             this.buttonEditParticipant = new System.Windows.Forms.Button();
             this.buttonTambahPeserta = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -47,7 +50,7 @@
             this.SubParticipantAddress,
             this.SubParticipantBirthday,
             this.SubParticipantGender});
-            this.dataGridView.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView.Location = new System.Drawing.Point(12, 41);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
@@ -94,7 +97,7 @@
             this.buttonDeleteParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDeleteParticipant.Location = new System.Drawing.Point(451, 448);
+            this.buttonDeleteParticipant.Location = new System.Drawing.Point(451, 466);
             this.buttonDeleteParticipant.Name = "buttonDeleteParticipant";
             this.buttonDeleteParticipant.Size = new System.Drawing.Size(150, 53);
             this.buttonDeleteParticipant.TabIndex = 8;
@@ -109,7 +112,7 @@
             this.buttonEditParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditParticipant.Location = new System.Drawing.Point(245, 448);
+            this.buttonEditParticipant.Location = new System.Drawing.Point(245, 466);
             this.buttonEditParticipant.Name = "buttonEditParticipant";
             this.buttonEditParticipant.Size = new System.Drawing.Size(150, 53);
             this.buttonEditParticipant.TabIndex = 7;
@@ -124,7 +127,7 @@
             this.buttonTambahPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambahPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambahPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonTambahPeserta.Location = new System.Drawing.Point(20, 448);
+            this.buttonTambahPeserta.Location = new System.Drawing.Point(20, 466);
             this.buttonTambahPeserta.Name = "buttonTambahPeserta";
             this.buttonTambahPeserta.Size = new System.Drawing.Size(170, 53);
             this.buttonTambahPeserta.TabIndex = 6;
@@ -132,11 +135,34 @@
             this.buttonTambahPeserta.UseVisualStyleBackColor = false;
             this.buttonTambahPeserta.Click += new System.EventHandler(this.buttonTambahPeserta_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(841, 27);
+            this.toolStrip1.TabIndex = 16;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
+            this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(29, 24);
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.ToolTipText = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // SubParticipantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 542);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonDeleteParticipant);
             this.Controls.Add(this.buttonEditParticipant);
             this.Controls.Add(this.buttonTambahPeserta);
@@ -146,7 +172,10 @@
             this.Text = "SubParticipantForm";
             this.Load += new System.EventHandler(this.SubParticipantForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -161,5 +190,7 @@
         private System.Windows.Forms.Button buttonDeleteParticipant;
         private System.Windows.Forms.Button buttonEditParticipant;
         private System.Windows.Forms.Button buttonTambahPeserta;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton buttonPrint;
     }
 }

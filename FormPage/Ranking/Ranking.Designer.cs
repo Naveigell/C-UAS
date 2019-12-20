@@ -31,7 +31,10 @@
             this.buttonDeleteRangking = new System.Windows.Forms.Button();
             this.buttonEditRangking = new System.Windows.Forms.Button();
             this.buttonTambahRanking = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -45,7 +48,7 @@
             this.EventName,
             this.ParticipantName,
             this.TotalScore});
-            this.dataGridView.Location = new System.Drawing.Point(13, 13);
+            this.dataGridView.Location = new System.Drawing.Point(13, 41);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
@@ -90,11 +93,11 @@
             this.buttonDeleteRangking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteRangking.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteRangking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDeleteRangking.Location = new System.Drawing.Point(423, 389);
+            this.buttonDeleteRangking.Location = new System.Drawing.Point(423, 408);
             this.buttonDeleteRangking.Name = "buttonDeleteRangking";
             this.buttonDeleteRangking.Size = new System.Drawing.Size(180, 53);
             this.buttonDeleteRangking.TabIndex = 14;
-            this.buttonDeleteRangking.Text = "Hapus Rangking";
+            this.buttonDeleteRangking.Text = "Hapus Ranking";
             this.buttonDeleteRangking.UseVisualStyleBackColor = false;
             this.buttonDeleteRangking.Click += new System.EventHandler(this.buttonDeleteRangking_Click);
             // 
@@ -105,7 +108,7 @@
             this.buttonEditRangking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditRangking.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditRangking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditRangking.Location = new System.Drawing.Point(234, 389);
+            this.buttonEditRangking.Location = new System.Drawing.Point(234, 408);
             this.buttonEditRangking.Name = "buttonEditRangking";
             this.buttonEditRangking.Size = new System.Drawing.Size(150, 53);
             this.buttonEditRangking.TabIndex = 13;
@@ -120,7 +123,7 @@
             this.buttonTambahRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambahRanking.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambahRanking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonTambahRanking.Location = new System.Drawing.Point(24, 389);
+            this.buttonTambahRanking.Location = new System.Drawing.Point(24, 408);
             this.buttonTambahRanking.Name = "buttonTambahRanking";
             this.buttonTambahRanking.Size = new System.Drawing.Size(170, 53);
             this.buttonTambahRanking.TabIndex = 12;
@@ -128,11 +131,34 @@
             this.buttonTambahRanking.UseVisualStyleBackColor = false;
             this.buttonTambahRanking.Click += new System.EventHandler(this.buttonTambahRanking_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(817, 27);
+            this.toolStrip1.TabIndex = 15;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
+            this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(29, 28);
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.ToolTipText = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // Ranking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 487);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonDeleteRangking);
             this.Controls.Add(this.buttonEditRangking);
             this.Controls.Add(this.buttonTambahRanking);
@@ -142,7 +168,10 @@
             this.Text = "Ranking";
             this.Load += new System.EventHandler(this.Ranking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -156,5 +185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalScore;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton buttonPrint;
     }
 }

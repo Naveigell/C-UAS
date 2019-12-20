@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParticipantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -34,7 +35,11 @@
             this.buttonEditParticipant = new System.Windows.Forms.Button();
             this.buttonDeleteParticipant = new System.Windows.Forms.Button();
             this.buttonLihatAnggota = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -50,7 +55,7 @@
             this.ParticipantType,
             this.ParticipantGender});
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView.Location = new System.Drawing.Point(2, 3);
+            this.dataGridView.Location = new System.Drawing.Point(2, 44);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
@@ -102,7 +107,7 @@
             this.buttonTambahPeserta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambahPeserta.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambahPeserta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonTambahPeserta.Location = new System.Drawing.Point(33, 476);
+            this.buttonTambahPeserta.Location = new System.Drawing.Point(33, 501);
             this.buttonTambahPeserta.Name = "buttonTambahPeserta";
             this.buttonTambahPeserta.Size = new System.Drawing.Size(170, 53);
             this.buttonTambahPeserta.TabIndex = 2;
@@ -117,7 +122,7 @@
             this.buttonLihatJadwal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLihatJadwal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLihatJadwal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatJadwal.Location = new System.Drawing.Point(251, 476);
+            this.buttonLihatJadwal.Location = new System.Drawing.Point(251, 501);
             this.buttonLihatJadwal.Name = "buttonLihatJadwal";
             this.buttonLihatJadwal.Size = new System.Drawing.Size(150, 53);
             this.buttonLihatJadwal.TabIndex = 3;
@@ -132,7 +137,7 @@
             this.buttonEditParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditParticipant.Location = new System.Drawing.Point(456, 476);
+            this.buttonEditParticipant.Location = new System.Drawing.Point(456, 501);
             this.buttonEditParticipant.Name = "buttonEditParticipant";
             this.buttonEditParticipant.Size = new System.Drawing.Size(150, 53);
             this.buttonEditParticipant.TabIndex = 4;
@@ -147,7 +152,7 @@
             this.buttonDeleteParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDeleteParticipant.Location = new System.Drawing.Point(662, 476);
+            this.buttonDeleteParticipant.Location = new System.Drawing.Point(662, 501);
             this.buttonDeleteParticipant.Name = "buttonDeleteParticipant";
             this.buttonDeleteParticipant.Size = new System.Drawing.Size(150, 53);
             this.buttonDeleteParticipant.TabIndex = 5;
@@ -162,7 +167,7 @@
             this.buttonLihatAnggota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLihatAnggota.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLihatAnggota.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLihatAnggota.Location = new System.Drawing.Point(871, 476);
+            this.buttonLihatAnggota.Location = new System.Drawing.Point(871, 501);
             this.buttonLihatAnggota.Name = "buttonLihatAnggota";
             this.buttonLihatAnggota.Size = new System.Drawing.Size(160, 53);
             this.buttonLihatAnggota.TabIndex = 6;
@@ -170,11 +175,40 @@
             this.buttonLihatAnggota.UseVisualStyleBackColor = false;
             this.buttonLihatAnggota.Click += new System.EventHandler(this.buttonLihatAnggota_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1099, 31);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
+            this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(29, 28);
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.ToolTipText = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // EventParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 580);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonLihatAnggota);
             this.Controls.Add(this.buttonDeleteParticipant);
             this.Controls.Add(this.buttonEditParticipant);
@@ -186,7 +220,10 @@
             this.Text = "Participant";
             this.Load += new System.EventHandler(this.EventParticipant_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -203,5 +240,8 @@
         private System.Windows.Forms.Button buttonEditParticipant;
         private System.Windows.Forms.Button buttonDeleteParticipant;
         private System.Windows.Forms.Button buttonLihatAnggota;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton buttonPrint;
     }
 }

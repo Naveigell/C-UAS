@@ -6,6 +6,7 @@ using UAS.FormPage.Participant;
 using UAS.FormPage.Participant.SubParticipant;
 using UAS.FormPage.Schedule;
 using UAS.Scripts;
+using UAS.Scripts.Helper;
 using UAS.Scripts.Model;
 
 namespace UAS.FormPage {
@@ -184,6 +185,12 @@ namespace UAS.FormPage {
             } catch(Exception exception) {
                 Console.WriteLine(exception.Message);
             }
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e) {
+            Converter converter = new Converter();
+            converter.SetDataGridView(dataGridView);
+            converter.ShowDialog(this);
         }
     }
 }

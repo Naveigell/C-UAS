@@ -32,8 +32,11 @@ namespace UAS.Scripts.Helper {
 
                             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                             excel.Application.Workbooks.Add(Type.Missing);
+                            // jadikan tanpa format
+                            excel.Cells.NumberFormat = "@";
 
                             for (int i = 0; i < dataGridView.Columns.Count; i++) {
+                                // pada cell yang ke pertama column seterusnya diisi oleh header
                                 excel.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
                             }
 
@@ -43,7 +46,7 @@ namespace UAS.Scripts.Helper {
                                 }
                             }
 
-                            /*excel.Columns.AutoFit();*/
+                            excel.Columns.AutoFit();
                             excel.Visible = true;
 
                         } catch(Exception exception) {

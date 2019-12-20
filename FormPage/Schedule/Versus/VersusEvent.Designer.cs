@@ -34,7 +34,10 @@
             this.buttonDeleteVersus = new System.Windows.Forms.Button();
             this.buttonEditJadwalPesertaVersus = new System.Windows.Forms.Button();
             this.buttonTambahJadwalVersus = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -51,7 +54,7 @@
             this.EventStartDate,
             this.Score,
             this.Venue});
-            this.dataGridView.Location = new System.Drawing.Point(13, 13);
+            this.dataGridView.Location = new System.Drawing.Point(13, 40);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
@@ -155,11 +158,34 @@
             this.buttonTambahJadwalVersus.UseVisualStyleBackColor = false;
             this.buttonTambahJadwalVersus.Click += new System.EventHandler(this.buttonTambahJadwalVersus_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(871, 27);
+            this.toolStrip1.TabIndex = 18;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
+            this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(29, 24);
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.ToolTipText = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // VersusEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 553);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonDeleteVersus);
             this.Controls.Add(this.buttonEditJadwalPesertaVersus);
             this.Controls.Add(this.buttonTambahJadwalVersus);
@@ -169,7 +195,10 @@
             this.Text = "VersusEvent";
             this.Load += new System.EventHandler(this.VersusEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -186,5 +215,7 @@
         private System.Windows.Forms.Button buttonDeleteVersus;
         private System.Windows.Forms.Button buttonEditJadwalPesertaVersus;
         private System.Windows.Forms.Button buttonTambahJadwalVersus;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton buttonPrint;
     }
 }
