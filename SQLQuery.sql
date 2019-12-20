@@ -128,7 +128,8 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 		IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ranking')
 			BEGIN
 				CREATE TABLE ranking (
-					id_ranking VARCHAR(255),
+					id_ranking INT PRIMARY KEY NOT NULL IDENTITY(1, 1),
+					ranking_index VARCHAR(255) NOT NULL,
 					id_event VARCHAR(20) NULL,
 					id_peserta VARCHAR(20) NULL,
 					skor INT NOT NULL

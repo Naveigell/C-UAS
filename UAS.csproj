@@ -76,6 +76,24 @@
     <Compile Include="FormPage\Participant\EventParticipantForm.Designer.cs">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\Ranking\AddRankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Ranking\AddRankForm.Designer.cs">
+      <DependentUpon>AddRankForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Ranking\EditRankingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Ranking\EditRankingForm.Designer.cs">
+      <DependentUpon>EditRankingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Ranking\Ranking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Ranking\Ranking.Designer.cs">
+      <DependentUpon>Ranking.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPage\Schedule\AddRoundForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +184,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Participant\EventParticipantForm.resx">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Ranking\AddRankForm.resx">
+      <DependentUpon>AddRankForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Ranking\EditRankingForm.resx">
+      <DependentUpon>EditRankingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Ranking\Ranking.resx">
+      <DependentUpon>Ranking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Schedule\AddRoundForm.resx">
       <DependentUpon>AddRoundForm.cs</DependentUpon>

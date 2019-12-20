@@ -191,6 +191,7 @@
             this.buttonLihatHasil.TabIndex = 4;
             this.buttonLihatHasil.Text = "Lihat Hasil";
             this.buttonLihatHasil.UseVisualStyleBackColor = false;
+            this.buttonLihatHasil.Click += new System.EventHandler(this.buttonLihatHasil_Click);
             // 
             // buttonEditEvent
             // 

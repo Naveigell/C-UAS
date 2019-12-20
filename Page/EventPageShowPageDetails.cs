@@ -165,22 +165,29 @@ namespace UAS.Page {
         }
 
         private void buttonLihatPeserta_Click(object sender, EventArgs e) {
-            // ambil id event dari datagridview
-            int rowCount = dataGridView.CurrentCell.RowIndex;
-            String cellValue = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
 
-            EventParticipant eventParticipant = new EventParticipant();
+            try {
 
-            // mengambil parent form
-            Form form = (this.Parent.Parent as Form);
-            form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+                // ambil id event dari datagridview
+                int rowCount = dataGridView.CurrentCell.RowIndex;
+                String cellValue = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
 
-            // passing id event ke form berikutnya
-            eventParticipant.SetEventID(cellValue);
-            eventParticipant.ShowDialog(this);
+                EventParticipant eventParticipant = new EventParticipant();
 
-            form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+                // mengambil parent form
+                Form form = (this.Parent.Parent as Form);
+                form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
 
+                // passing id event ke form berikutnya
+                eventParticipant.SetEventID(cellValue);
+                eventParticipant.ShowDialog(this);
+
+                form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+
+
+            } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
 
         }
 
@@ -251,6 +258,31 @@ namespace UAS.Page {
                 }*/
 
             } catch(Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        private void buttonLihatHasil_Click(object sender, EventArgs e) {
+            try {
+
+                // ambil id event dari datagridview
+                int rowCount = dataGridView.CurrentCell.RowIndex;
+                String cellValue = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
+
+                Ranking ranking = new Ranking();
+
+                // mengambil parent form
+                Form form = (this.Parent.Parent as Form);
+                form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+                // passing id event ke form berikutnya
+                ranking.SetEventID(cellValue);
+                ranking.ShowDialog(this);
+
+                form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
+
+
+            } catch (Exception exception) {
                 Console.WriteLine(exception.Message);
             }
         }

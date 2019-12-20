@@ -23,3 +23,6 @@ D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Individual.EditIndividualForm.resource
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.VersusEvent.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.VersusAddForm.resources
 D:\C#\UAS\obj\Debug\UAS.FormPage.Schedule.Versus.EditVersusForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Ranking.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Rangking.AddRankForm.resources
+D:\C#\UAS\obj\Debug\UAS.FormPage.Rangking.EditRankingForm.resources
