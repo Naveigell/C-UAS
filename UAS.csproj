@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -186,6 +192,12 @@
     <Compile Include="Page\EventPage.Designer.cs">
       <DependentUpon>EventPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Helper\Converter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scripts\Helper\Converter.Designer.cs">
+      <DependentUpon>Converter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\Model\Database.cs" />
     <Compile Include="Scripts\Model\QueryBuilder.cs" />
     <EmbeddedResource Include="FormPage\Event\AddEventForm.resx">
@@ -262,10 +274,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Page\EventPage.resx">
       <DependentUpon>EventPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Scripts\Helper\Converter.resx">
+      <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -279,6 +296,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Print_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

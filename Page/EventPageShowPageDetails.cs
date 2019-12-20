@@ -12,6 +12,7 @@ using UAS.Scripts.Model;
 using System.Data.SqlClient;
 using UAS.FormPage;
 using System.Collections;
+using UAS.Scripts.Helper;
 
 namespace UAS.Page {
     public partial class EventPageShowPageDetails : UserControl {
@@ -288,6 +289,12 @@ namespace UAS.Page {
             } catch (Exception exception) {
                 Console.WriteLine(exception.Message);
             }
+        }
+
+        private void linkLabelPrint_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Converter converter = new Converter();
+            converter.SetDataGridView(dataGridView);
+            converter.ShowDialog(this);
         }
     }
 }
