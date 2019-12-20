@@ -1,4 +1,4 @@
-USE MASTER
+/*USE MASTER
 
 DECLARE @db VARCHAR(30)
 SET @db = 'events_olahraga';
@@ -11,7 +11,7 @@ IF (DB_ID('events_olahraga') IS NULL)
 IF (DB_ID('events_olahraga') IS NOT NULL)
 	BEGIN
 		EXEC('USE ' + @db);
-	END
+	END */
 
 CREATE DATABASE events_olahraga;
 
@@ -156,7 +156,7 @@ GO
 
 ALTER TABLE ranking
   ADD CONSTRAINT ranking_ibfk_2 FOREIGN KEY (id_peserta) REFERENCES peserta (id_peserta) */
-
+/*
 DELETE FROM peserta
 DELETE FROM field_peserta
 DELETE FROM ranking
@@ -175,7 +175,7 @@ SELECT score_by_goal.*,
 	   INNER JOIN peserta peserta1 ON score_by_goal.id_peserta1 = peserta1.id_peserta
 	   INNER JOIN peserta peserta2 ON score_by_goal.id_peserta2 = peserta2.id_peserta
 	   WHERE score_by_goal.id_scedule = '4'
-
+	   *//*
 INSERT INTO event_olahraga (id_event, nama_event, tanggal_pelaksanaan_event, tanggal_event_selesai, tipe_event, event_gender, deskripsi, status_event, created_at, updated_at) VALUES
 ('AOV001', 'AOV', '2019-12-04 00:00:00', '2019-12-06 00:00:00', 'Kelompok', 'Man', 'Untuk semua umur', 1, NULL, NULL),
 ('BDM001', 'Badminton', '2019-12-15 00:00:00', '2019-12-18 00:00:00', 'Perorangan', 'Man', 'Perlombaan untuk senior', 1, NULL, NULL),
@@ -226,7 +226,7 @@ INSERT INTO peserta (id_peserta, id_event, nama_peserta, nomor_telepon_peserta, 
 ('KAR3_18', 'KAR002', 'Aprilia Krisda', '081839283928', 'Perorangan', 'Woman', NULL, NULL),
 ('KAR3_19', 'KAR002', 'Winarni Tri', '081273848291', 'Perorangan', 'Woman', NULL, NULL),
 ('KAR3_20', 'KAR002', 'Sheva Maya', '081379273784', 'Perorangan', 'Woman', NULL, NULL);
-
+*/
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
 

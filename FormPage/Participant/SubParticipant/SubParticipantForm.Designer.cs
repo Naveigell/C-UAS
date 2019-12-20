@@ -30,7 +30,6 @@
             this.SubParticipantBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubParticipantGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonDeleteParticipant = new System.Windows.Forms.Button();
-            this.buttonEditParticipant = new System.Windows.Forms.Button();
             this.buttonTambahPeserta = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.buttonPrint = new System.Windows.Forms.ToolStripButton();
@@ -97,28 +96,13 @@
             this.buttonDeleteParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDeleteParticipant.Location = new System.Drawing.Point(451, 466);
+            this.buttonDeleteParticipant.Location = new System.Drawing.Point(217, 466);
             this.buttonDeleteParticipant.Name = "buttonDeleteParticipant";
             this.buttonDeleteParticipant.Size = new System.Drawing.Size(150, 53);
             this.buttonDeleteParticipant.TabIndex = 8;
             this.buttonDeleteParticipant.Text = "Hapus Peserta";
             this.buttonDeleteParticipant.UseVisualStyleBackColor = false;
             this.buttonDeleteParticipant.Click += new System.EventHandler(this.buttonDeleteParticipant_Click);
-            // 
-            // buttonEditParticipant
-            // 
-            this.buttonEditParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.buttonEditParticipant.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEditParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditParticipant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditParticipant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEditParticipant.Location = new System.Drawing.Point(245, 466);
-            this.buttonEditParticipant.Name = "buttonEditParticipant";
-            this.buttonEditParticipant.Size = new System.Drawing.Size(150, 53);
-            this.buttonEditParticipant.TabIndex = 7;
-            this.buttonEditParticipant.Text = "Edit Peserta";
-            this.buttonEditParticipant.UseVisualStyleBackColor = false;
-            this.buttonEditParticipant.Click += new System.EventHandler(this.buttonEditParticipant_Click);
             // 
             // buttonTambahPeserta
             // 
@@ -164,7 +148,6 @@
             this.ClientSize = new System.Drawing.Size(841, 542);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonDeleteParticipant);
-            this.Controls.Add(this.buttonEditParticipant);
             this.Controls.Add(this.buttonTambahPeserta);
             this.Controls.Add(this.dataGridView);
             this.Name = "SubParticipantForm";
@@ -188,7 +171,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubParticipantBirthday;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubParticipantGender;
         private System.Windows.Forms.Button buttonDeleteParticipant;
-        private System.Windows.Forms.Button buttonEditParticipant;
         private System.Windows.Forms.Button buttonTambahPeserta;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton buttonPrint;

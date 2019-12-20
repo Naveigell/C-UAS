@@ -56,9 +56,10 @@ namespace UAS.Scripts.Helper {
 
                         PdfPTable pdfTable = new PdfPTable(dataGridView.Columns.Count);
                         pdfTable.DefaultCell.Padding = 30;
-                        pdfTable.WidthPercentage = 30;
-                        pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                        pdfTable.WidthPercentage = 95;
+                        pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfTable.DefaultCell.BorderWidth = 1;
+                        pdfTable.TotalWidth = 300f;
 
                         try {
 
@@ -71,9 +72,18 @@ namespace UAS.Scripts.Helper {
 
                             }
 
+                            for (int i = 0; i < dataGridView.Rows.Count; i++) {
+                                for (int j = 0; j < dataGridView.Columns.Count; j++) {
+                                    PdfPCell pdfPCell = new PdfPCell(new Phrase(dataGridView.Rows[i].Cells[j].Value.ToString()));
+                                    pdfPCell.BackgroundColor = new BaseColor(240, 240, 240);
+
+                                    pdfTable.AddCell(pdfPCell);
+                                }
+                            }
+
                             FileStream stream = new FileStream("D:\\" + "pdfexported.pdf", FileMode.Create);
-                            Document pdf = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
-                            PdfWriter.GetInstance(pdf, stream);
+                            Document pdf = new Document(PageSize.TABLOID, 0f, 0f, 10f, 10f);
+                            PdfWriter writer = PdfWriter.GetInstance(pdf, stream);)
 
                             pdf.Open();
                             pdf.Add(pdfTable);

@@ -127,8 +127,9 @@ namespace UAS.FormPage.Schedule.Versus {
                 //
                 // BUG
                 //
-                String name1 = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                String name2 = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                int row = dataGridView.CurrentCell.RowIndex;
+                String name1 = dataGridView.Rows[row].Cells[1].Value.ToString();
+                String name2 = dataGridView.Rows[row].Cells[3].Value.ToString();
                 String id = versusSchedulesID[dataGridView.CurrentCell.RowIndex];
 
                 DialogResult dialogResult = MessageBox.Show("Hapus " + name1 + " vs " + name2 + " - (" + id + ")", "", MessageBoxButtons.YesNo);
