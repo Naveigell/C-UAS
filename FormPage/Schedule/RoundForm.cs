@@ -41,6 +41,7 @@ namespace UAS.FormPage.Schedule {
 
         private void LoadData() {
             dataGridView.Rows.Clear();
+            arrayList.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("schedules")
                                                .Where("id_event", "=", eventID);

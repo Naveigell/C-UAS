@@ -57,7 +57,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 					tipe_peserta VARCHAR(30) NOT NULL CHECK(tipe_peserta IN('Perorangan', 'Kelompok')) DEFAULT 'Perorangan',
 					gender VARCHAR(30) NOT NULL CHECK(gender IN('Man', 'Woman', 'Mixed')) DEFAULT 'Man',
 					created_at DATETIME NULL,
-					updated_at DATETIME NULL,
+					updated_at DATETIME NULL
 					--FOREIGN KEY(id_event) REFERENCES event_olahraga(id_event) ON DELETE CASCADE ON UPDATE CASCADE
 				);
 			END
@@ -72,7 +72,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 					tanggal_lahir DATETIME NULL,
 					field_peserta_gender VARCHAR(30) NOT NULL CHECK(field_peserta_gender IN('Male', 'Female')) DEFAULT 'Man',
 					created_at DATETIME NULL,
-					updated_at DATETIME NULL,
+					updated_at DATETIME NULL
 					--FOREIGN KEY(id_event) REFERENCES event_olahraga(id_event) ON DELETE CASCADE ON UPDATE CASCADE
 				);
 			END;
@@ -138,7 +138,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 				);
 			END
 	END
-
+/*
 ALTER TABLE peserta
   ADD CONSTRAINT peserta_ibfk_1 FOREIGN KEY (id_event) REFERENCES event_olahraga (id_event) ON DELETE NO ACTION ON UPDATE CASCADE
 
@@ -155,12 +155,14 @@ ALTER TABLE ranking
 GO
 
 ALTER TABLE ranking
-  ADD CONSTRAINT ranking_ibfk_2 FOREIGN KEY (id_peserta) REFERENCES peserta (id_peserta)
+  ADD CONSTRAINT ranking_ibfk_2 FOREIGN KEY (id_peserta) REFERENCES peserta (id_peserta) */
 
 DELETE FROM peserta
 DELETE FROM field_peserta
 DELETE FROM ranking
 DELETE FROM event_olahraga
+
+DROP TABLE event_olahraga;
 
 SELECT TOP 1 *, CONVERT (int, SUBSTRING(id_peserta, 6, LEN(id_peserta))) AS SortingID FROM (SELECT * FROM peserta WHERE id_event = 'CTR002') AS a ORDER BY SortingID DESC
  

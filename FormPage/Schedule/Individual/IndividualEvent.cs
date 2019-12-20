@@ -37,6 +37,7 @@ namespace UAS.FormPage.Schedule {
 
         private void LoadData() {
             dataGridView.Rows.Clear();
+            arrayList.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("score_by_individual")
                                                .InnerJoin("schedules", "schedules.id_schedule", "=", "score_by_individual.id_scedule")

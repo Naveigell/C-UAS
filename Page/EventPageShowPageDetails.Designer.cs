@@ -39,6 +39,7 @@
             this.buttonLihatHasil = new System.Windows.Forms.Button();
             this.buttonEditEvent = new System.Windows.Forms.Button();
             this.buttonDeleteEvent = new System.Windows.Forms.Button();
+            this.linkLabelPrint = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,10 +224,21 @@
             this.buttonDeleteEvent.UseVisualStyleBackColor = false;
             this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
             // 
+            // linkLabelPrint
+            // 
+            this.linkLabelPrint.AutoSize = true;
+            this.linkLabelPrint.Location = new System.Drawing.Point(160, 485);
+            this.linkLabelPrint.Name = "linkLabelPrint";
+            this.linkLabelPrint.Size = new System.Drawing.Size(37, 17);
+            this.linkLabelPrint.TabIndex = 7;
+            this.linkLabelPrint.TabStop = true;
+            this.linkLabelPrint.Text = "Print";
+            // 
             // EventPageShowPageDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.linkLabelPrint);
             this.Controls.Add(this.buttonDeleteEvent);
             this.Controls.Add(this.buttonEditEvent);
             this.Controls.Add(this.buttonLihatHasil);
@@ -239,6 +251,7 @@
             this.Load += new System.EventHandler(this.EventPageShowPageDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,5 +273,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EventDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventStatus;
         private System.Windows.Forms.Button buttonDeleteEvent;
+        private System.Windows.Forms.LinkLabel linkLabelPrint;
     }
 }

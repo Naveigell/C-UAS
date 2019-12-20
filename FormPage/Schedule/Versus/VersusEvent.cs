@@ -35,6 +35,7 @@ namespace UAS.FormPage.Schedule.Versus {
 
         private void LoadData() {
             dataGridView.Rows.Clear();
+            arrayList.Clear();
             /*QueryBuilder builder = queryBuilder.Select("*")
                                                .From("score_by_goal")
                                                .Join("peserta AS peserta1", "score_by_goal.id_peserta1", "=", "peserta1.id_peserta")

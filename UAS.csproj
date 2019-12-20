@@ -76,6 +76,24 @@
     <Compile Include="FormPage\Participant\EventParticipantForm.Designer.cs">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\AddSubParticipantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\AddSubParticipantForm.Designer.cs">
+      <DependentUpon>AddSubParticipantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\EditSubParticipantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\EditSubParticipantForm.Designer.cs">
+      <DependentUpon>EditSubParticipantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\SubParticipantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPage\Participant\SubParticipant\SubParticipantForm.Designer.cs">
+      <DependentUpon>SubParticipantForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPage\Ranking\AddRankForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +203,15 @@
     <EmbeddedResource Include="FormPage\Participant\EventParticipantForm.resx">
       <DependentUpon>EventParticipantForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Participant\SubParticipant\AddSubParticipantForm.resx">
+      <DependentUpon>AddSubParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Participant\SubParticipant\EditSubParticipantForm.resx">
+      <DependentUpon>EditSubParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPage\Participant\SubParticipant\SubParticipantForm.resx">
+      <DependentUpon>SubParticipantForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Ranking\AddRankForm.resx">
       <DependentUpon>AddRankForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,5 +279,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,7 @@
             this.buttonLihatJadwal = new System.Windows.Forms.Button();
             this.buttonEditParticipant = new System.Windows.Forms.Button();
             this.buttonDeleteParticipant = new System.Windows.Forms.Button();
+            this.buttonLihatAnggota = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,11 +155,27 @@
             this.buttonDeleteParticipant.UseVisualStyleBackColor = false;
             this.buttonDeleteParticipant.Click += new System.EventHandler(this.buttonDeleteParticipant_Click);
             // 
+            // buttonLihatAnggota
+            // 
+            this.buttonLihatAnggota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonLihatAnggota.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLihatAnggota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLihatAnggota.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLihatAnggota.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLihatAnggota.Location = new System.Drawing.Point(871, 476);
+            this.buttonLihatAnggota.Name = "buttonLihatAnggota";
+            this.buttonLihatAnggota.Size = new System.Drawing.Size(160, 53);
+            this.buttonLihatAnggota.TabIndex = 6;
+            this.buttonLihatAnggota.Text = "Lihat Anggota";
+            this.buttonLihatAnggota.UseVisualStyleBackColor = false;
+            this.buttonLihatAnggota.Click += new System.EventHandler(this.buttonLihatAnggota_Click);
+            // 
             // EventParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 580);
+            this.Controls.Add(this.buttonLihatAnggota);
             this.Controls.Add(this.buttonDeleteParticipant);
             this.Controls.Add(this.buttonEditParticipant);
             this.Controls.Add(this.buttonLihatJadwal);
@@ -185,5 +202,6 @@
         private System.Windows.Forms.Button buttonLihatJadwal;
         private System.Windows.Forms.Button buttonEditParticipant;
         private System.Windows.Forms.Button buttonDeleteParticipant;
+        private System.Windows.Forms.Button buttonLihatAnggota;
     }
 }

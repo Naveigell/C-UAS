@@ -47,6 +47,7 @@ namespace UAS.FormPage {
 
         private void LoadData() {
             dataGridView.Rows.Clear();
+            arrayList.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("ranking")
                                                .InnerJoin("event_olahraga", "ranking.id_event", "=", "event_olahraga.id_event")

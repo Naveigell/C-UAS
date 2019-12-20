@@ -161,6 +161,7 @@ namespace UAS.Page {
             Form form = (this.Parent.Parent as Form);
             form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
             addEventForm.ShowDialog(this);
+            LoadEventPage();
             form.Opacity = 1; // kembalikan parent form opacity menjadi normal jika form add Event diclose
         }
 
@@ -231,11 +232,12 @@ namespace UAS.Page {
             try {
 
                 /*if (dataGridView.SelectedRows.Count > 0) {*/
-                    //
-                    // BUG
-                    //
-                    String eventName = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString();
-                    String id = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                //
+                // BUG
+                //
+                    int row = dataGridView.CurrentCell.RowIndex;
+                    String eventName = dataGridView.Rows[row].Cells[2].Value.ToString();
+                    String id = dataGridView.Rows[row].Cells[1].Value.ToString();
 
                     DialogResult dialogResult = MessageBox.Show("Hapus " + eventName + "- (" + id + ")", "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes) {
@@ -247,6 +249,7 @@ namespace UAS.Page {
                         if (rowsAffected > 0) {
                             MessageBox.Show("Hapus berhasil", "Success");
                             RefreshEvent();
+                            LoadEventPage();
                         } else {
                             MessageBox.Show("Hapus gagal", "Error");
                         }

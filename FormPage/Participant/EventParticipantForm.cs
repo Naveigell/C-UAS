@@ -3,6 +3,7 @@ using System.Collections;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using UAS.FormPage.Participant;
+using UAS.FormPage.Participant.SubParticipant;
 using UAS.FormPage.Schedule;
 using UAS.Scripts;
 using UAS.Scripts.Model;
@@ -37,6 +38,7 @@ namespace UAS.FormPage {
 
         private void LoadData() {
             dataGridView.Rows.Clear();
+            arrayList.Clear();
             QueryBuilder builder = queryBuilder.Select("*")
                                                .From("peserta")
                                                .Where("id_event", "=", eventID);
@@ -132,8 +134,9 @@ namespace UAS.FormPage {
                 //
                 // BUG
                 //
-                String name = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                String id = tempIDArray[dataGridView.CurrentCell.RowIndex];
+                int row = dataGridView.CurrentCell.RowIndex;
+                String name = dataGridView.Rows[row].Cells[1].Value.ToString();
+                String id = tempIDArray[row];
 
                 DialogResult dialogResult = MessageBox.Show("Hapus " + name + "- (" + id + ")", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes) {
@@ -156,6 +159,29 @@ namespace UAS.FormPage {
                 }*/
 
             } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        private void buttonLihatAnggota_Click(object sender, EventArgs e) {
+            try {
+
+                String tipe = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString();
+
+                if (!tipe.ToLower().Equals("kelompok")) return;
+
+                SubParticipantForm subParticipantForm = new SubParticipantForm();
+
+                this.Opacity = 0.4;
+
+                subParticipantForm.SetEventID(eventID);
+                subParticipantForm.SetParticipantID(tempIDArray[dataGridView.CurrentCell.RowIndex]);
+                subParticipantForm.ShowDialog(this);
+                LoadData();
+
+                this.Opacity = 1;
+
+            } catch(Exception exception) {
                 Console.WriteLine(exception.Message);
             }
         }
