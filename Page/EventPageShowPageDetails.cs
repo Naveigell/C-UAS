@@ -46,10 +46,12 @@ namespace UAS.Page {
             // clear rows dari data gridview
             dataGridView.Rows.Clear();
             dataGridView.Refresh();
-                
-            QueryBuilder builder = queryBuilder.Select("*")
+
+            QueryBuilder builder = queryBuilder.Select("event_olahraga.id_event, event_olahraga.nama_event, event_olahraga.tanggal_pelaksanaan_event, event_olahraga.tanggal_event_selesai, event_olahraga.tipe_event, event_olahraga.deskripsi, event_olahraga.event_gender, COUNT(peserta.id_peserta) AS jumlah_peserta")
                                                .From("event_olahraga")
-                                               .OrderBy("id_event", QueryBuilder.ORDER_ASCENDING)
+                                               .InnerJoin("peserta", "peserta.id_event", "=", "event_olahraga.id_event")
+                                               .GroupBy("peserta.id_event, event_olahraga.id_event, event_olahraga.nama_event, event_olahraga.tanggal_pelaksanaan_event, event_olahraga.tanggal_event_selesai, event_olahraga.tipe_event, event_olahraga.deskripsi, event_olahraga.event_gender")
+                                               .OrderBy("event_olahraga.id_event", QueryBuilder.ORDER_ASCENDING)
                                                // sebelum limit harus menggunakan order by
                                                .Limit(offset, limit);
 
@@ -77,6 +79,7 @@ namespace UAS.Page {
                         ++number,
                         dataReader["id_event"].ToString(),
                         dataReader["nama_event"].ToString(),
+                        dataReader["jumlah_peserta"].ToString(),
                         dateTimeMulai.ToString("dd - MM - yyyy"),
                         dateTimeSelesai.ToString("dd - MM - yyyy"),
                         dataReader["tipe_event"].ToString().First().ToString().ToUpper() + dataReader["tipe_event"].ToString().Substring(1),

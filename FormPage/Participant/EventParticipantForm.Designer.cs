@@ -25,11 +25,6 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParticipantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParticipantCellularPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParticipantType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParticipantGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTambahPeserta = new System.Windows.Forms.Button();
             this.buttonLihatJadwal = new System.Windows.Forms.Button();
             this.buttonEditParticipant = new System.Windows.Forms.Button();
@@ -38,6 +33,12 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.buttonPrint = new System.Windows.Forms.ToolStripButton();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParticipantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParticipantCellularPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParticipantType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MembersCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParticipantGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.ParticipantName,
             this.ParticipantCellularPhone,
             this.ParticipantType,
+            this.MembersCount,
             this.ParticipantGender});
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.Location = new System.Drawing.Point(2, 44);
@@ -64,41 +66,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(1094, 433);
             this.dataGridView.TabIndex = 0;
-            // 
-            // Number
-            // 
-            this.Number.HeaderText = "No";
-            this.Number.MinimumWidth = 6;
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // ParticipantName
-            // 
-            this.ParticipantName.HeaderText = "Nama Peserta";
-            this.ParticipantName.MinimumWidth = 6;
-            this.ParticipantName.Name = "ParticipantName";
-            this.ParticipantName.ReadOnly = true;
-            // 
-            // ParticipantCellularPhone
-            // 
-            this.ParticipantCellularPhone.HeaderText = "No telp";
-            this.ParticipantCellularPhone.MinimumWidth = 6;
-            this.ParticipantCellularPhone.Name = "ParticipantCellularPhone";
-            this.ParticipantCellularPhone.ReadOnly = true;
-            // 
-            // ParticipantType
-            // 
-            this.ParticipantType.HeaderText = "Type";
-            this.ParticipantType.MinimumWidth = 6;
-            this.ParticipantType.Name = "ParticipantType";
-            this.ParticipantType.ReadOnly = true;
-            // 
-            // ParticipantGender
-            // 
-            this.ParticipantGender.HeaderText = "Gender";
-            this.ParticipantGender.MinimumWidth = 6;
-            this.ParticipantGender.Name = "ParticipantGender";
-            this.ParticipantGender.ReadOnly = true;
             // 
             // buttonTambahPeserta
             // 
@@ -188,7 +155,7 @@
             this.buttonPrint});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1099, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1099, 27);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -198,10 +165,55 @@
             this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
             this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(29, 28);
+            this.buttonPrint.Size = new System.Drawing.Size(29, 24);
             this.buttonPrint.Text = "Print";
             this.buttonPrint.ToolTipText = "Print";
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
+            // Number
+            // 
+            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Number.Frozen = true;
+            this.Number.HeaderText = "No";
+            this.Number.MinimumWidth = 6;
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            this.Number.Width = 182;
+            // 
+            // ParticipantName
+            // 
+            this.ParticipantName.HeaderText = "Nama Peserta";
+            this.ParticipantName.MinimumWidth = 6;
+            this.ParticipantName.Name = "ParticipantName";
+            this.ParticipantName.ReadOnly = true;
+            // 
+            // ParticipantCellularPhone
+            // 
+            this.ParticipantCellularPhone.HeaderText = "No telp";
+            this.ParticipantCellularPhone.MinimumWidth = 6;
+            this.ParticipantCellularPhone.Name = "ParticipantCellularPhone";
+            this.ParticipantCellularPhone.ReadOnly = true;
+            // 
+            // ParticipantType
+            // 
+            this.ParticipantType.HeaderText = "Type";
+            this.ParticipantType.MinimumWidth = 6;
+            this.ParticipantType.Name = "ParticipantType";
+            this.ParticipantType.ReadOnly = true;
+            // 
+            // MembersCount
+            // 
+            this.MembersCount.HeaderText = "Jumlah Peserta";
+            this.MembersCount.MinimumWidth = 6;
+            this.MembersCount.Name = "MembersCount";
+            this.MembersCount.ReadOnly = true;
+            // 
+            // ParticipantGender
+            // 
+            this.ParticipantGender.HeaderText = "Gender";
+            this.ParticipantGender.MinimumWidth = 6;
+            this.ParticipantGender.Name = "ParticipantGender";
+            this.ParticipantGender.ReadOnly = true;
             // 
             // EventParticipant
             // 
@@ -230,11 +242,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantCellularPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantGender;
         private System.Windows.Forms.Button buttonTambahPeserta;
         private System.Windows.Forms.Button buttonLihatJadwal;
         private System.Windows.Forms.Button buttonEditParticipant;
@@ -243,5 +250,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton buttonPrint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantCellularPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MembersCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantGender;
     }
 }

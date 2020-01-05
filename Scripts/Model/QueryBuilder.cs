@@ -142,6 +142,12 @@ namespace UAS.Scripts.Model {
             return this;
         }
 
+        public QueryBuilder GroupBy(String group) {
+            this.query += " GROUP BY " + group + " ";
+
+            return this;
+        }
+
         public QueryBuilder Limit(int offset, int limit) {
 
             this.query += " OFFSET " + offset + " ROWS FETCH NEXT " + limit + " ROWS ONLY";

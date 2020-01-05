@@ -24,15 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTambahEvent = new System.Windows.Forms.Button();
             this.comboBoxPage = new System.Windows.Forms.ComboBox();
             this.buttonLihatPeserta = new System.Windows.Forms.Button();
@@ -40,6 +31,16 @@
             this.buttonEditEvent = new System.Windows.Forms.Button();
             this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.linkLabelPrint = new System.Windows.Forms.LinkLabel();
+            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParticipantNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.ColumnNumber,
             this.IDEvent,
             this.EventName,
+            this.ParticipantNumber,
             this.EventStartTime,
             this.EventEnd,
             this.EventType,
@@ -73,69 +75,6 @@
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.dataGridView.LostFocus += new System.EventHandler(this.DataGridViewOnLostFocus);
-            // 
-            // ColumnNumber
-            // 
-            this.ColumnNumber.HeaderText = "No";
-            this.ColumnNumber.MinimumWidth = 6;
-            this.ColumnNumber.Name = "ColumnNumber";
-            this.ColumnNumber.Width = 125;
-            // 
-            // IDEvent
-            // 
-            this.IDEvent.HeaderText = "ID Event";
-            this.IDEvent.MinimumWidth = 6;
-            this.IDEvent.Name = "IDEvent";
-            this.IDEvent.Width = 125;
-            // 
-            // EventName
-            // 
-            this.EventName.HeaderText = "Nama Event";
-            this.EventName.MinimumWidth = 6;
-            this.EventName.Name = "EventName";
-            this.EventName.Width = 125;
-            // 
-            // EventStartTime
-            // 
-            this.EventStartTime.HeaderText = "Tanggal Mulai";
-            this.EventStartTime.MinimumWidth = 6;
-            this.EventStartTime.Name = "EventStartTime";
-            this.EventStartTime.Width = 125;
-            // 
-            // EventEnd
-            // 
-            this.EventEnd.HeaderText = "Tanggal Selesai";
-            this.EventEnd.MinimumWidth = 6;
-            this.EventEnd.Name = "EventEnd";
-            this.EventEnd.Width = 125;
-            // 
-            // EventType
-            // 
-            this.EventType.HeaderText = "Tipe";
-            this.EventType.MinimumWidth = 6;
-            this.EventType.Name = "EventType";
-            this.EventType.Width = 125;
-            // 
-            // EventGender
-            // 
-            this.EventGender.HeaderText = "Gender";
-            this.EventGender.MinimumWidth = 6;
-            this.EventGender.Name = "EventGender";
-            this.EventGender.Width = 125;
-            // 
-            // EventDescription
-            // 
-            this.EventDescription.HeaderText = "Deskripsi";
-            this.EventDescription.MinimumWidth = 6;
-            this.EventDescription.Name = "EventDescription";
-            this.EventDescription.Width = 125;
-            // 
-            // EventStatus
-            // 
-            this.EventStatus.HeaderText = "Status";
-            this.EventStatus.MinimumWidth = 6;
-            this.EventStatus.Name = "EventStatus";
-            this.EventStatus.Width = 125;
             // 
             // buttonTambahEvent
             // 
@@ -236,6 +175,76 @@
             this.linkLabelPrint.Text = "Print";
             this.linkLabelPrint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrint_LinkClicked);
             // 
+            // ColumnNumber
+            // 
+            this.ColumnNumber.HeaderText = "No";
+            this.ColumnNumber.MinimumWidth = 6;
+            this.ColumnNumber.Name = "ColumnNumber";
+            this.ColumnNumber.Width = 125;
+            // 
+            // IDEvent
+            // 
+            this.IDEvent.HeaderText = "ID Event";
+            this.IDEvent.MinimumWidth = 6;
+            this.IDEvent.Name = "IDEvent";
+            this.IDEvent.Width = 125;
+            // 
+            // EventName
+            // 
+            this.EventName.HeaderText = "Nama Event";
+            this.EventName.MinimumWidth = 6;
+            this.EventName.Name = "EventName";
+            this.EventName.Width = 125;
+            // 
+            // ParticipantNumber
+            // 
+            this.ParticipantNumber.HeaderText = "Jumlah Peserta";
+            this.ParticipantNumber.MinimumWidth = 6;
+            this.ParticipantNumber.Name = "ParticipantNumber";
+            this.ParticipantNumber.Width = 80;
+            // 
+            // EventStartTime
+            // 
+            this.EventStartTime.HeaderText = "Tanggal Mulai";
+            this.EventStartTime.MinimumWidth = 6;
+            this.EventStartTime.Name = "EventStartTime";
+            this.EventStartTime.Width = 125;
+            // 
+            // EventEnd
+            // 
+            this.EventEnd.HeaderText = "Tanggal Selesai";
+            this.EventEnd.MinimumWidth = 6;
+            this.EventEnd.Name = "EventEnd";
+            this.EventEnd.Width = 125;
+            // 
+            // EventType
+            // 
+            this.EventType.HeaderText = "Tipe";
+            this.EventType.MinimumWidth = 6;
+            this.EventType.Name = "EventType";
+            this.EventType.Width = 125;
+            // 
+            // EventGender
+            // 
+            this.EventGender.HeaderText = "Gender";
+            this.EventGender.MinimumWidth = 6;
+            this.EventGender.Name = "EventGender";
+            this.EventGender.Width = 125;
+            // 
+            // EventDescription
+            // 
+            this.EventDescription.HeaderText = "Deskripsi";
+            this.EventDescription.MinimumWidth = 6;
+            this.EventDescription.Name = "EventDescription";
+            this.EventDescription.Width = 125;
+            // 
+            // EventStatus
+            // 
+            this.EventStatus.HeaderText = "Status";
+            this.EventStatus.MinimumWidth = 6;
+            this.EventStatus.Name = "EventStatus";
+            this.EventStatus.Width = 125;
+            // 
             // EventPageShowPageDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,16 +274,17 @@
         private System.Windows.Forms.Button buttonLihatPeserta;
         private System.Windows.Forms.Button buttonLihatHasil;
         private System.Windows.Forms.Button buttonEditEvent;
+        private System.Windows.Forms.Button buttonDeleteEvent;
+        private System.Windows.Forms.LinkLabel linkLabelPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParticipantNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventStartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventType;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventStatus;
-        private System.Windows.Forms.Button buttonDeleteEvent;
-        private System.Windows.Forms.LinkLabel linkLabelPrint;
     }
 }

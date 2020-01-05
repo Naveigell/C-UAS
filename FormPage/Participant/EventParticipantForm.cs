@@ -40,9 +40,12 @@ namespace UAS.FormPage {
         private void LoadData() {
             dataGridView.Rows.Clear();
             arrayList.Clear();
-            QueryBuilder builder = queryBuilder.Select("*")
+            QueryBuilder builder = queryBuilder.Select("peserta.id_peserta, peserta.id_event, peserta.nama_peserta, peserta.nomor_telepon_peserta, peserta.tipe_peserta, peserta.gender, COUNT(field_peserta.id_peserta) AS jumlah_member")
                                                .From("peserta")
-                                               .Where("id_event", "=", eventID);
+                                               .InnerJoin("field_peserta", "field_peserta.id_peserta", "=", "peserta.id_peserta")
+                                               .Where("id_event", "=", eventID)
+                                               .GroupBy("peserta.id_peserta, peserta.id_event, peserta.nama_peserta, peserta.nomor_telepon_peserta, peserta.tipe_peserta, peserta.gender")
+                                               .OrderBy("peserta.id_peserta", QueryBuilder.ORDER_ASCENDING);
 
             try {
 
@@ -58,6 +61,7 @@ namespace UAS.FormPage {
                         dataReader["nama_peserta"].ToString(),
                         dataReader["nomor_telepon_peserta"].ToString(),
                         dataReader["tipe_peserta"].ToString(),
+                        dataReader["tipe_peserta"].ToString().Equals("Kelompok") ? dataReader["jumlah_member"].ToString() : "-",
                         dataReader["gender"].ToString()
                     );
                 }
