@@ -172,6 +172,12 @@
     <Compile Include="FormPage\Schedule\Versus\VersusEvent.Designer.cs">
       <DependentUpon>VersusEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,8 +204,10 @@
     <Compile Include="Scripts\Helper\Converter.Designer.cs">
       <DependentUpon>Converter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Model\Auth.cs" />
     <Compile Include="Scripts\Model\Database.cs" />
     <Compile Include="Scripts\Model\QueryBuilder.cs" />
+    <Compile Include="Scripts\Model\Session.cs" />
     <EmbeddedResource Include="FormPage\Event\AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPage\Schedule\Versus\VersusEvent.resx">
       <DependentUpon>VersusEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

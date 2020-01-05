@@ -33,3 +33,4 @@ D:\C#\UAS\obj\Debug\UAS.Scripts.Helper.Converter.resources
 D:\C#\UAS\bin\Debug\itextsharp.dll
 D:\C#\UAS\bin\Debug\itextsharp.xml
 D:\C#\UAS\obj\Debug\UAS.csproj.CopyComplete
+D:\C#\UAS\obj\Debug\UAS.LoginForm.resources

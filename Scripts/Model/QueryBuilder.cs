@@ -130,7 +130,7 @@ namespace UAS.Scripts.Model {
 
                 arrayList.AddRange(new string[] {"@" + data[i][2], data[i][2] });
 
-                this.query += data[i][0] + " " + data[i][1] + " " + data[i][2] + " " + temp + " ";
+                this.query += data[i][0] + " " + data[i][1] + " '" + data[i][2] + "' " + temp + " ";
             }
 
             return this;

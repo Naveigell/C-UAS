@@ -83,7 +83,7 @@ namespace UAS.Scripts.Helper {
 
                             FileStream stream = new FileStream("D:\\" + "pdfexported.pdf", FileMode.Create);
                             Document pdf = new Document(PageSize.TABLOID, 0f, 0f, 10f, 10f);
-                            PdfWriter writer = PdfWriter.GetInstance(pdf, stream);)
+                            PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
 
                             pdf.Open();
                             pdf.Add(pdfTable);

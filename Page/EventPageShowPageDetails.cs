@@ -30,6 +30,11 @@ namespace UAS.Page {
         public EventPageShowPageDetails() {
             InitializeComponent();
             InitializeVariables();
+
+            // perlihatkan tombol tambah edit dan hapus jika user nya adalah admin
+            buttonTambahEvent.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonEditEvent.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonDeleteEvent.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
