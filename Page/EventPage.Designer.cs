@@ -24,12 +24,13 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEventPage = new System.Windows.Forms.Button();
             this.buttonHomePage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.participantPageShowPageDetails1 = new UAS.Page.ParticipantPageShowPageDetails();
             this.eventPageShowPageDetails = new UAS.Page.EventPageShowPageDetails();
-            this.buttonEventPage = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(251, 656);
             this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(-3, 238);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 4);
+            this.button1.Size = new System.Drawing.Size(250, 67);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Logout";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // buttonEventPage
+            // 
+            this.buttonEventPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.buttonEventPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEventPage.FlatAppearance.BorderSize = 0;
+            this.buttonEventPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEventPage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEventPage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEventPage.Location = new System.Drawing.Point(1, 173);
+            this.buttonEventPage.Name = "buttonEventPage";
+            this.buttonEventPage.Padding = new System.Windows.Forms.Padding(45, 0, 0, 4);
+            this.buttonEventPage.Size = new System.Drawing.Size(250, 67);
+            this.buttonEventPage.TabIndex = 1;
+            this.buttonEventPage.Text = "Participant";
+            this.buttonEventPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEventPage.UseVisualStyleBackColor = false;
             // 
             // buttonHomePage
             // 
@@ -84,6 +119,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Event";
             // 
+            // participantPageShowPageDetails1
+            // 
+            this.participantPageShowPageDetails1.Location = new System.Drawing.Point(253, 58);
+            this.participantPageShowPageDetails1.Name = "participantPageShowPageDetails1";
+            this.participantPageShowPageDetails1.Size = new System.Drawing.Size(951, 606);
+            this.participantPageShowPageDetails1.TabIndex = 4;
+            // 
             // eventPageShowPageDetails
             // 
             this.eventPageShowPageDetails.Location = new System.Drawing.Point(253, 59);
@@ -92,44 +134,11 @@
             this.eventPageShowPageDetails.TabIndex = 3;
             this.eventPageShowPageDetails.Load += new System.EventHandler(this.eventPageShowPageDetails1_Load);
             // 
-            // buttonEventPage
-            // 
-            this.buttonEventPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.buttonEventPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEventPage.FlatAppearance.BorderSize = 0;
-            this.buttonEventPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEventPage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEventPage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEventPage.Location = new System.Drawing.Point(1, 173);
-            this.buttonEventPage.Name = "buttonEventPage";
-            this.buttonEventPage.Padding = new System.Windows.Forms.Padding(45, 0, 0, 4);
-            this.buttonEventPage.Size = new System.Drawing.Size(250, 67);
-            this.buttonEventPage.TabIndex = 1;
-            this.buttonEventPage.Text = "Profile";
-            this.buttonEventPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEventPage.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(-3, 238);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 4);
-            this.button1.Size = new System.Drawing.Size(250, 67);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Logout";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // EventPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.participantPageShowPageDetails1);
             this.Controls.Add(this.eventPageShowPageDetails);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -152,5 +161,6 @@
         private Page.EventPageShowPageDetails eventPageShowPageDetails;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonEventPage;
+        private Page.ParticipantPageShowPageDetails participantPageShowPageDetails1;
     }
 }

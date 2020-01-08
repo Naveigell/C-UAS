@@ -31,6 +31,10 @@ namespace UAS.FormPage {
             database = new Database(Properties.Settings.Default.dbSources);
             queryBuilder = new QueryBuilder();
             arrayList = new ArrayList();
+
+            buttonDeleteParticipant.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonEditParticipant.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonTambahPeserta.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
         }
 
         public void SetEventID(String id) {

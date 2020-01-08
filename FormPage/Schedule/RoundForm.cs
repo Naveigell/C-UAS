@@ -34,6 +34,10 @@ namespace UAS.FormPage.Schedule {
             dataGridView.Columns[0].Width = 50;
 
             arrayList = new ArrayList();
+
+            buttonDeleteRound.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonTambahRonde.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonEditRonde.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
         }
 
         private void RoundForm_Load(object sender, EventArgs e) {

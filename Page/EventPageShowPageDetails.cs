@@ -21,8 +21,6 @@ namespace UAS.Page {
         private QueryBuilder queryBuilder;
         private SqlDataReader dataReader;
 
-        private ArrayList IDEventStore;
-
         private int page = 0;
         private int totalPage = 0;
         private int dataPerPage = 10;

@@ -36,6 +36,10 @@ namespace UAS.FormPage {
             database = new Database(Properties.Settings.Default.dbSources);
             queryBuilder = new QueryBuilder();
             arrayList = new ArrayList();
+
+            buttonDeleteRangking.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonTambahRanking.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonEditRangking.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
         }
 
         public void SetEventID(String id) {
@@ -165,6 +169,10 @@ namespace UAS.FormPage {
             Converter converter = new Converter();
             converter.SetDataGridView(dataGridView);
             converter.ShowDialog(this);
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+
         }
     }
 }

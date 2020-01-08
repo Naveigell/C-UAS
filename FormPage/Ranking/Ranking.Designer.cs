@@ -141,6 +141,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(817, 27);
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // buttonPrint
             // 
@@ -148,7 +149,7 @@
             this.buttonPrint.Image = global::UAS.Properties.Resources.Print_48px;
             this.buttonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(29, 28);
+            this.buttonPrint.Size = new System.Drawing.Size(29, 24);
             this.buttonPrint.Text = "Print";
             this.buttonPrint.ToolTipText = "Print";
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);

@@ -190,6 +190,12 @@
     <Compile Include="Page\EventPageShowPageDetails.Designer.cs">
       <DependentUpon>EventPageShowPageDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Page\ParticipantPageShowPageDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\ParticipantPageShowPageDetails.Designer.cs">
+      <DependentUpon>ParticipantPageShowPageDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Page\EventPage.cs">
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Page\EventPageShowPageDetails.resx">
       <DependentUpon>EventPageShowPageDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\ParticipantPageShowPageDetails.resx">
+      <DependentUpon>ParticipantPageShowPageDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -160,6 +160,10 @@ namespace UAS.FormPage.Schedule {
 
             dataGridView.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.Columns[0].Width = 50;
+
+            buttonDeleteSchedule.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonEditJadwalPesertaIndividual.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
+            buttonTambahJadwalPeserta.Visible = Session.LOGIN_MODE == Auth.TYPE_ADMIN;
         }
     }
 }
