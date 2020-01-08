@@ -8,6 +8,7 @@ namespace UAS.Scripts.Model {
     class Session {
 
         public static int LOGIN_MODE = 0;
+        public static int LOGOUT = 0;
 
     }
 }

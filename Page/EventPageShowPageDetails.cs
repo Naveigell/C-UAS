@@ -165,7 +165,7 @@ namespace UAS.Page {
             AddEventForm addEventForm = new AddEventForm();
 
             // mengambil parent form
-            Form form = (this.Parent.Parent as Form);
+            Form form = (this.Parent.Parent.Parent as Form);
             form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
             addEventForm.ShowDialog(this);
             LoadEventPage();
@@ -183,7 +183,7 @@ namespace UAS.Page {
                 EventParticipant eventParticipant = new EventParticipant();
 
                 // mengambil parent form
-                Form form = (this.Parent.Parent as Form);
+                Form form = (this.Parent.Parent.Parent as Form);
                 form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
 
                 // passing id event ke form berikutnya
@@ -217,12 +217,12 @@ namespace UAS.Page {
             int rowCount = dataGridView.CurrentCell.RowIndex;
             String eventID = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
             String eventName = dataGridView.Rows[rowCount].Cells[2].Value.ToString();
-            String eventDescription = dataGridView.Rows[rowCount].Cells[7].Value.ToString();
+            String eventDescription = dataGridView.Rows[rowCount].Cells[8].Value.ToString();
 
             EditEventForm editEventForm = new EditEventForm();
 
             // mengambil parent form
-            Form form = (this.Parent.Parent as Form);
+            Form form = (this.Parent.Parent.Parent as Form);
             form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
 
             editEventForm.SetEventID(eventID);
@@ -278,11 +278,10 @@ namespace UAS.Page {
                 // ambil id event dari datagridview
                 int rowCount = dataGridView.CurrentCell.RowIndex;
                 String cellValue = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
-
                 Ranking ranking = new Ranking();
 
                 // mengambil parent form
-                Form form = (this.Parent.Parent as Form);
+                Form form = (this.Parent.Parent.Parent as Form);
                 form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
 
                 // passing id event ke form berikutnya
