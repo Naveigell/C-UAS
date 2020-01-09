@@ -117,6 +117,7 @@
             this.linkLabelPrint.TabIndex = 8;
             this.linkLabelPrint.TabStop = true;
             this.linkLabelPrint.Text = "Print";
+            this.linkLabelPrint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrint_LinkClicked);
             // 
             // ParticipantPageShowPageDetails
             // 

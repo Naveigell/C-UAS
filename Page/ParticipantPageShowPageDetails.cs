@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using UAS.Scripts;
 using UAS.Scripts.Model;
 using System.Data.SqlClient;
+using UAS.Scripts.Helper;
 
 namespace UAS.Page {
     public partial class ParticipantPageShowPageDetails : UserControl {
@@ -123,6 +124,17 @@ namespace UAS.Page {
             int to = (page + 1) * dataPerPage;
             int from = to - dataPerPage;
             LoadEventData(from, to);
+        }
+
+        private void linkLabelPrint_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Form form = (this.Parent.Parent.Parent as Form);
+            form.Opacity = 0.4; // membuat parent form opacity menjadi 0.4
+
+            Converter converter = new Converter();
+            converter.SetDataGridView(dataGridView);
+            converter.ShowDialog(this);
+
+            form.Opacity = 1;
         }
     }
 }

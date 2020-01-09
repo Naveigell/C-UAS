@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using UAS.FormPage;
 using System.Collections;
 using UAS.Scripts.Helper;
+using System.IO;
 
 namespace UAS.Page {
     public partial class EventPageShowPageDetails : UserControl {

@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
@@ -41,6 +46,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -204,11 +211,41 @@
     <Compile Include="Page\EventPage.Designer.cs">
       <DependentUpon>EventPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\EventsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ParticipantReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParticipantReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ResultReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResultReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ScheduleReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Scripts\Helper\Converter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Scripts\Helper\Converter.Designer.cs">
       <DependentUpon>Converter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\Helper\CrystalReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scripts\Helper\CrystalReportViewer.Designer.cs">
+      <DependentUpon>CrystalReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\Model\Auth.cs" />
     <Compile Include="Scripts\Model\Database.cs" />
@@ -299,8 +336,27 @@
     <EmbeddedResource Include="Page\EventPage.resx">
       <DependentUpon>EventPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EventsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EventsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ParticipantReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ParticipantReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ResultReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ResultReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ScheduleReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ScheduleReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Helper\Converter.resx">
       <DependentUpon>Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scripts\Helper\CrystalReportViewer.resx">
+      <DependentUpon>CrystalReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -318,6 +374,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Print_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

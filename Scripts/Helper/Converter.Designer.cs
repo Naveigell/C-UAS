@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.comboBoxConvertTypeSelection = new System.Windows.Forms.ComboBox();
             this.buttonConvert = new System.Windows.Forms.Button();
+            this.comboBoxCrystalReportSelection = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // comboBoxConvertTypeSelection
@@ -36,6 +37,7 @@
             this.comboBoxConvertTypeSelection.Name = "comboBoxConvertTypeSelection";
             this.comboBoxConvertTypeSelection.Size = new System.Drawing.Size(444, 33);
             this.comboBoxConvertTypeSelection.TabIndex = 0;
+            this.comboBoxConvertTypeSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxConvertTypeSelection_SelectedIndexChanged);
             // 
             // buttonConvert
             // 
@@ -44,7 +46,7 @@
             this.buttonConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConvert.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConvert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonConvert.Location = new System.Drawing.Point(12, 62);
+            this.buttonConvert.Location = new System.Drawing.Point(478, 10);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Size = new System.Drawing.Size(127, 39);
             this.buttonConvert.TabIndex = 7;
@@ -52,11 +54,22 @@
             this.buttonConvert.UseVisualStyleBackColor = false;
             this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
             // 
+            // comboBoxCrystalReportSelection
+            // 
+            this.comboBoxCrystalReportSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCrystalReportSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCrystalReportSelection.FormattingEnabled = true;
+            this.comboBoxCrystalReportSelection.Location = new System.Drawing.Point(12, 58);
+            this.comboBoxCrystalReportSelection.Name = "comboBoxCrystalReportSelection";
+            this.comboBoxCrystalReportSelection.Size = new System.Drawing.Size(444, 33);
+            this.comboBoxCrystalReportSelection.TabIndex = 8;
+            // 
             // Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 114);
+            this.ClientSize = new System.Drawing.Size(624, 103);
+            this.Controls.Add(this.comboBoxCrystalReportSelection);
             this.Controls.Add(this.buttonConvert);
             this.Controls.Add(this.comboBoxConvertTypeSelection);
             this.Name = "Converter";
@@ -70,5 +83,6 @@
 
         private System.Windows.Forms.ComboBox comboBoxConvertTypeSelection;
         private System.Windows.Forms.Button buttonConvert;
+        private System.Windows.Forms.ComboBox comboBoxCrystalReportSelection;
     }
 }

@@ -8,6 +8,14 @@ namespace UAS.Scripts.Helper {
     public partial class Converter : Form {
 
         private DataGridView dataGridView;
+        private String projectPathDirectory;
+        private String[] crystalReportPath = new String[] { 
+            "\\Reports\\EventsReport.rpt", 
+            "\\Reports\\ParticipantReport.rpt",
+            "\\Reports\\ScheduleReport.rpt",
+            "\\Reports\\ResultReport.rpt"
+        };
+        private String[] crystalReportComboBoxTitle = new String[] { "Events", "Peserta", "Jadwal", "Skor" };
 
         public Converter() {
             InitializeComponent();
@@ -15,8 +23,14 @@ namespace UAS.Scripts.Helper {
         }
 
         private void InitializeVariable() {
-            comboBoxConvertTypeSelection.Items.AddRange(new string[] { "Excel", "PDF" });
+            comboBoxConvertTypeSelection.Items.AddRange(new string[] { "Excel", "PDF", "Crystal Report" });
             if (comboBoxConvertTypeSelection.Items.Count > 0) comboBoxConvertTypeSelection.SelectedIndex = 0;
+
+            projectPathDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            comboBoxCrystalReportSelection.Visible = comboBoxConvertTypeSelection.SelectedIndex == 2;
+            comboBoxCrystalReportSelection.Items.AddRange(crystalReportComboBoxTitle);
+            if (comboBoxCrystalReportSelection.Items.Count > 0) comboBoxCrystalReportSelection.SelectedIndex = 0;
         }
 
         public void SetDataGridView(DataGridView dataGridView) {
@@ -90,13 +104,42 @@ namespace UAS.Scripts.Helper {
                             pdf.Close();
                             stream.Close();
 
+                            if (File.Exists("D:\\" + "pdfexported.pdf")) {
+                                MessageBox.Show("Export PDF success dan tersimpan di path D:\\\\pdfexported.pdf", "Success");
+                            } else {
+                                MessageBox.Show("Export PDF error", "Error");
+                            }
+
                         } catch (Exception exception) {
                             Console.WriteLine(exception.Message);
                         }
 
+                    } else if (comboBoxConvertTypeSelection.SelectedIndex == 2) {
+                        // jika panjang combobox item lebih dari 0 dan kurang dari
+                        // panjang maksimum
+                        if (comboBoxCrystalReportSelection.SelectedIndex >= 0 && 
+                            comboBoxCrystalReportSelection.SelectedIndex <= comboBoxCrystalReportSelection.Items.Count - 1) {
+
+                            int index = comboBoxCrystalReportSelection.SelectedIndex;
+
+                            CrystalReportViewer eventPageCrystalReports = new CrystalReportViewer();
+                            eventPageCrystalReports.SetCrystalReportSource(projectPathDirectory + crystalReportPath[index]);
+                            eventPageCrystalReports.ShowDialog(this);
+                        }
                     }
                 }
             }
+        }
+
+        private void comboBoxConvertTypeSelection_SelectedIndexChanged(object sender, EventArgs e) {
+            if (comboBoxConvertTypeSelection.SelectedIndex == 2) {
+                buttonConvert.Text = "Buka Form";
+            } else {
+                buttonConvert.Text = "Convert";
+            }
+
+            this.Size = comboBoxConvertTypeSelection.SelectedIndex == 2 ? new System.Drawing.Size(484, 123) : new System.Drawing.Size(484, 90);
+            comboBoxCrystalReportSelection.Visible = comboBoxConvertTypeSelection.SelectedIndex == 2;
         }
     }
 }
