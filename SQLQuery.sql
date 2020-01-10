@@ -27,7 +27,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 				CREATE TABLE admin(
 					id_admin INT IDENTITY(1, 1) PRIMARY KEY,
 					email VARCHAR(20) NOT NULL,
-					[password] VARCHAR(20)  NOT NULL
+					[password] VARCHAR(50)  NOT NULL
 				);
 			END;
 
@@ -387,3 +387,9 @@ INSERT INTO peserta (id_peserta, id_event, nama_peserta, nomor_telepon_peserta, 
 ('KAR2_40', 'KAR002', 'Hanandyta Emilia', '083647274916', 'Perorangan', 'Woman', NULL, NULL),
 ('KAR2_41', 'KAR002', 'Sanistyarani Cok Istri', '083647276383', 'Perorangan', 'Woman', NULL, NULL);
 
+INSERT INTO [admin](email, [password]) VALUES
+('admin1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759'), 
+('admin2@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759'),
+('admin3@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759'),
+('admin4@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759'),
+('admin5@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759');

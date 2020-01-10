@@ -253,6 +253,7 @@
     <Compile Include="Scripts\Helper\CrystalReportViewer.Designer.cs">
       <DependentUpon>CrystalReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Helper\Hash.cs" />
     <Compile Include="Scripts\Model\Auth.cs" />
     <Compile Include="Scripts\Model\Database.cs" />
     <Compile Include="Scripts\Model\QueryBuilder.cs" />

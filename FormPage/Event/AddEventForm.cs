@@ -21,6 +21,8 @@ namespace UAS.FormPage {
         public AddEventForm() {
             InitializeComponent();
             InitializeVariables();
+
+            labelErrorMessage.Visible = false;
         }
 
         private void AddEventForm_Load(object sender, EventArgs e) {
@@ -47,6 +49,8 @@ namespace UAS.FormPage {
         }
 
         private void buttonAddEvent_Click(object sender, EventArgs e) {
+
+            ValidateDateTime();
 
             isEventNameError = textBoxEventName.Text.Equals("") || (int) textBoxEventName.Text.Length < 3;
             isEventIDError = textBoxEventID.Text.Equals("") || (int) textBoxEventID.Text.Length < 2;
@@ -92,7 +96,7 @@ namespace UAS.FormPage {
                                                    "id_event, nama_event, tanggal_pelaksanaan_event, tanggal_event_selesai, tipe_event, deskripsi, event_gender, status_event")
 
                                            .Values(new String[][] {
-                                            new String[] { eventID, textBoxEventName.Text.ToString(), startDate.ToString("yyyy-MM-dd HH:mm"), finishDate.ToString("yyyy-MM-dd HH:mm"), comboBoxEventType.SelectedItem.ToString(), textBoxDescription.Text.ToString(), comboBoxEventGender.SelectedItem.ToString(), "1" },
+                                                new String[] { eventID, textBoxEventName.Text.ToString(), startDate.ToString("yyyy-MM-dd HH:mm"), finishDate.ToString("yyyy-MM-dd HH:mm"), comboBoxEventType.SelectedItem.ToString(), textBoxDescription.Text.ToString(), comboBoxEventGender.SelectedItem.ToString(), "1" },
                                            });
 
                     // execute query dari insert data
@@ -112,26 +116,21 @@ namespace UAS.FormPage {
                 }
 
             } else {
-                MessageBox.Show("Ups check your input again", "Error");
 
-                Console.WriteLine("Name : " + isEventNameError);
-                Console.WriteLine("EventID : " + isEventIDError);
-                Console.WriteLine("Description : " + isDescriptionError);
-                Console.WriteLine("Event Type : " + isEventTypeError);
-                Console.WriteLine("FinishDate : " + isFinishDateError);
-                Console.WriteLine("StartDate : " + isStartDateError);
-                Console.WriteLine("Gender Error : " + isGenderError);
-                Console.WriteLine();
+                if (isEventNameError) {
+                    MessageBox.Show("Panjang nama event tidak boleh kurang dari 3", "Error");
+                } else if (isEventIDError) {
+                    MessageBox.Show("Panjang id event tidak boleh kurang dari 2", "Error");
+                } else if (isStartDateError || isFinishDateError) {
+                    MessageBox.Show(labelErrorMessage.Text, "Error");
+                } else if (isEventTypeError) {
+                    MessageBox.Show("Tipe event harus dipilih", "Error");
+                } else if (isGenderError) {
+                    MessageBox.Show("Gender harus dipilih", "Error");
+                } else if (isDescriptionError) {
+                    MessageBox.Show("Panjang deskripsi tidak boleh kurang dari 5", "Error");
+                }
 
-                Console.WriteLine("Name Length : " + textBoxEventName.Text.Length);
-                Console.WriteLine("Event ID Length : " + textBoxEventID.Text.Length);
-                Console.WriteLine("Description Length : " + textBoxDescription.Text.Length);
-                Console.WriteLine();
-
-                Console.WriteLine("Name : " + textBoxEventName.Text.ToString());
-                Console.WriteLine("Event ID : " + textBoxEventID.Text.ToString());
-                Console.WriteLine("Description : " + textBoxDescription.Text.ToString());
-                Console.WriteLine("============================");
             }
         }
 
@@ -195,13 +194,13 @@ namespace UAS.FormPage {
             startDate.ToString("yyyy-MM-dd HH:mm:ss");
 
             if (startDate.Date > finishDate.Date) {
-                labelErrorMessage.Text = "Start date cant be greater than finish date";
+                labelErrorMessage.Text = "Waktu mulai tidak boleh lebih besar dari waktu selesai";
             } else if (startDate.Hour > finishDate.Hour && startDate.Date == finishDate.Date) {
-                labelErrorMessage.Text = "Start hour cant be greater than finish hour";
+                labelErrorMessage.Text = "Jam dimulai tidak boleh lebih besar dari jam selesai";
             } else if (startDate.Minute > finishDate.Minute && startDate.Hour == finishDate.Hour && startDate.Date == finishDate.Date) {
-                labelErrorMessage.Text = "Start minute cant be greater than finish minute";
+                labelErrorMessage.Text = "Menit mulai tidak boleh lebih besar dari menit selesai";
             } else if (startDate.Minute == finishDate.Minute && startDate.Hour == finishDate.Hour && startDate.Date == finishDate.Date) {
-                labelErrorMessage.Text = "Date, Hour, Minute cant be same";
+                labelErrorMessage.Text = "Tanggal, jam dan menit tidak boleh sama";
             } else {
                 SetLabelError("");
                 isFinishDateError = isStartDateError = false;

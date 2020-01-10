@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UAS.Scripts.Helper;
 using UAS.Scripts.Model;
 
 namespace UAS {
@@ -34,9 +35,11 @@ namespace UAS {
             } else if (password.Trim().Equals("")) {
                 MessageBox.Show("Password tidak boleh kosong", "Error");
             } else {
+
+                String ecryptedPassword = Hash.HashMD5(password);
                 // dapatkan tipe user dari auth lalu jadikan session login mode menjadi tipe user
                 // entah user biasa atau admin
-                bool isUserExist = auth.SignInWithEmailAndPassword(email, password, false);
+                bool isUserExist = auth.SignInWithEmailAndPassword(email, ecryptedPassword, false);
                 if (isUserExist) {
                     Session.LOGIN_MODE = auth.GetUserType();
                 } else {
