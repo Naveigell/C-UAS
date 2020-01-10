@@ -132,7 +132,7 @@ IF (DB_ID('events_olahraga') IS NOT NULL)
 					ranking_index VARCHAR(255) NOT NULL,
 					id_event VARCHAR(20) NULL,
 					id_peserta VARCHAR(20) NULL,
-					skor INT NOT NULL
+					skor VARCHAR(20) NOT NULL
 					--FOREIGN KEY(id_events) REFERENCES event_olahraga(id_event) ON DELETE CASCADE ON UPDATE CASCADE,
 					--FOREIGN KEY(id_peserta) REFERENCES peserta(id_peserta) ON DELETE CASCADE ON UPDATE CASCADE
 				);
