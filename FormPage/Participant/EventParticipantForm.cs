@@ -46,14 +46,16 @@ namespace UAS.FormPage {
             arrayList.Clear();
             QueryBuilder builder = queryBuilder.Select("peserta.id_peserta, peserta.id_event, peserta.nama_peserta, peserta.nomor_telepon_peserta, peserta.tipe_peserta, peserta.gender, COUNT(field_peserta.id_peserta) AS jumlah_member")
                                                .From("peserta")
-                                               .InnerJoin("field_peserta", "field_peserta.id_peserta", "=", "peserta.id_peserta")
-                                               .Where("id_event", "=", eventID)
+                                               .LeftJoin("field_peserta", "field_peserta.id_peserta", "=", "peserta.id_peserta")
+                                               .Where("peserta.id_event", "=", eventID)
                                                .GroupBy("peserta.id_peserta, peserta.id_event, peserta.nama_peserta, peserta.nomor_telepon_peserta, peserta.tipe_peserta, peserta.gender")
                                                .OrderBy("peserta.id_peserta", QueryBuilder.ORDER_ASCENDING);
+            String d = builder.Get();
+            Console.WriteLine(d);
 
             try {
 
-                SqlDataReader dataReader = database.ExecuteQuery(builder.Get());
+                SqlDataReader dataReader = database.ExecuteQuery(d);
                 int number = 0;
 
                 while (dataReader.Read()) {

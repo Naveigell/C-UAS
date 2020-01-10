@@ -48,11 +48,11 @@ namespace UAS.Page {
 
             QueryBuilder builder = queryBuilder.Select("event_olahraga.id_event, event_olahraga.nama_event, event_olahraga.tanggal_pelaksanaan_event, event_olahraga.tanggal_event_selesai, event_olahraga.tipe_event, event_olahraga.deskripsi, event_olahraga.event_gender, COUNT(peserta.id_peserta) AS jumlah_peserta")
                                                .From("event_olahraga")
-                                               .InnerJoin("peserta", "peserta.id_event", "=", "event_olahraga.id_event")
+                                               .LeftJoin("peserta", "peserta.id_event", "=", "event_olahraga.id_event")
                                                .GroupBy("peserta.id_event, event_olahraga.id_event, event_olahraga.nama_event, event_olahraga.tanggal_pelaksanaan_event, event_olahraga.tanggal_event_selesai, event_olahraga.tipe_event, event_olahraga.deskripsi, event_olahraga.event_gender")
                                                .OrderBy("event_olahraga.id_event", QueryBuilder.ORDER_ASCENDING)
                                                // sebelum limit harus menggunakan order by
-                                               .Limit(offset, limit);
+                                               .Limit(offset, dataPerPage);
 
             try {
 
@@ -180,6 +180,7 @@ namespace UAS.Page {
                 // ambil id event dari datagridview
                 int rowCount = dataGridView.CurrentCell.RowIndex;
                 String cellValue = dataGridView.Rows[rowCount].Cells[1].Value.ToString();
+                Console.WriteLine(cellValue);
 
                 EventParticipant eventParticipant = new EventParticipant();
 

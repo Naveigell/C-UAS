@@ -229,10 +229,16 @@
       <DependentUpon>ResultReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\ScheduleReport.cs">
+    <Compile Include="Reports\ScheduleReportIndividual.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ScheduleReport.rpt</DependentUpon>
+      <DependentUpon>ScheduleReportIndividual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ScheduleReportVS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleReportVS.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Scripts\Helper\Converter.cs">
@@ -348,9 +354,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ResultReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ScheduleReport.rpt">
+    <EmbeddedResource Include="Reports\ScheduleReportIndividual.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ScheduleReport.cs</LastGenOutput>
+      <LastGenOutput>ScheduleReportIndividual.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ScheduleReportVS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ScheduleReportVS.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Helper\Converter.resx">
       <DependentUpon>Converter.cs</DependentUpon>

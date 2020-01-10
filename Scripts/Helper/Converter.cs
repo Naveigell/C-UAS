@@ -13,9 +13,10 @@ namespace UAS.Scripts.Helper {
             "\\Reports\\EventsReport.rpt", 
             "\\Reports\\ParticipantReport.rpt",
             "\\Reports\\ScheduleReport.rpt",
-            "\\Reports\\ResultReport.rpt"
+            "\\Reports\\ScheduleReportVS.rpt",
+            "\\Reports\\ScheduleReportVS.rpt"
         };
-        private String[] crystalReportComboBoxTitle = new String[] { "Events", "Peserta", "Jadwal", "Skor" };
+        private String[] crystalReportComboBoxTitle = new String[] { "Events", "Peserta", "Jadwal", "Skor Vs", "Skor Individual" };
 
         public Converter() {
             InitializeComponent();
